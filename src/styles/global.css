@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+@theme {
+  /* Optional: Add custom theme tokens here if needed */
+}
