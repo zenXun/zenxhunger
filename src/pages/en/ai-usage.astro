@@ -1,6 +1,6 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getTranslations } from "../../i18n/translations";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getTranslations } from "@/i18n/translations";
 
 const { currentLocale } = Astro;
 const t = getTranslations(currentLocale as "en" | "zh");

@@ -1,7 +1,17 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../../../layouts/BaseLayout.astro";
-import { getTranslations } from "../../../i18n/translations";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getTranslations } from "@/i18n/translations";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("xr", ({ data }) => {
+    return data.locale === "en";
+  });
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
 
 const { currentLocale } = Astro;
 const t = getTranslations(currentLocale as "en" | "zh");
