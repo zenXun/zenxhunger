@@ -176,6 +176,20 @@
       "bases:Create new base": false
     }
   },
-  "active": "151205342c211e03",
-  "lastOpenFiles": []
+  "active": "42806ab7637cf05d",
+  "lastOpenFiles": [
+    "ai/zh/dummy-post.md",
+    "ai/en/dummy-post.md",
+    "xr/zh",
+    "xr/en",
+    "library/zh",
+    "library/en",
+    "ai/zh",
+    "ai/en",
+    "ai/zh/test-i18n.md",
+    "ai/en/test-i18n.md",
+    "ai/test-i18n.zh.md",
+    "ai/test-i18n-zh.md",
+    "ai/test-i18n.md"
+  ]
 }

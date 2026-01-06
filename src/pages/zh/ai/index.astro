@@ -1,10 +1,15 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getTranslations } from '../../../i18n/translations';
 
-const posts = (await getCollection('xr')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const { currentLocale } = Astro;
+const t = getTranslations(currentLocale as 'en' | 'zh');
+
+const allPosts = await getCollection('ai');
+const posts = allPosts
+  .filter(post => post.data.locale === currentLocale)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const statusColors = {
   seed: 'bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 border border-amber-200/50 dark:border-amber-800/50',
@@ -14,25 +19,24 @@ const statusColors = {
 ---
 
 <BaseLayout
-  title="XR - Zen X Hunger"
-  description="VR/AR industry research and spatial computing analysis"
+  title={`${t['ai.title']} - Zen X Hunger`}
+  description={t['ai.description']}
 >
   <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
     <!-- Header -->
     <header class="mb-16">
       <nav class="mb-8 text-sm text-stone-600 dark:text-stone-400 font-light">
-        <a href="/" class="hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200">Home</a>
+        <a href={`/${currentLocale}`} class="hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200">{t['nav.home']}</a>
         <span class="mx-2 text-stone-400 dark:text-stone-500">/</span>
-        <span class="text-stone-900 dark:text-stone-100">XR</span>
+        <span class="text-stone-900 dark:text-stone-100">{t['ai.title']}</span>
       </nav>
 
       <div class="space-y-4">
         <h1 class="text-5xl sm:text-6xl font-semibold text-stone-900 dark:text-stone-100 tracking-tight">
-          XR
+          {t['ai.title']}
         </h1>
         <p class="text-xl text-stone-600 dark:text-stone-400 max-w-3xl font-light leading-relaxed">
-          VR/AR industry research and spatial computing analysis.
-          Exploring the future of immersive technologies and extended reality.
+          {t['ai.description']}
         </p>
       </div>
     </header>
@@ -47,7 +51,7 @@ const statusColors = {
                 {post.data.status}
               </span>
               <time class="text-xs text-stone-500 dark:text-stone-400 font-light">
-                {post.data.pubDate.toLocaleDateString('en-US', {
+                {post.data.pubDate.toLocaleDateString(currentLocale, {
                   year: 'numeric',
                   month: 'short',
                   day: 'numeric'
@@ -56,7 +60,7 @@ const statusColors = {
             </div>
 
             <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-3 line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-500 transition-colors duration-200">
-              <a href={`/xr/${post.slug}`}>
+              <a href={`/${currentLocale}/ai/${post.slug}`}>
                 {post.data.title}
               </a>
             </h2>
@@ -74,10 +78,10 @@ const statusColors = {
             </div>
 
             <a
-              href={`/xr/${post.slug}`}
+              href={`/${currentLocale}/ai/${post.slug}`}
               class="inline-flex items-center text-sm font-medium text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 group/link"
             >
-              Read more
+              {t['ai.readMore']}
               <svg class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
@@ -87,8 +91,8 @@ const statusColors = {
       </div>
     ) : (
       <div class="text-center py-20">
-        <p class="text-stone-500 dark:text-stone-400 text-lg mb-2 font-light">No posts yet.</p>
-        <p class="text-stone-400 dark:text-stone-500 text-sm font-light">Start documenting your XR research and discoveries!</p>
+        <p class="text-stone-500 dark:text-stone-400 text-lg mb-2 font-light">{t['ai.noPosts']}</p>
+        <p class="text-stone-400 dark:text-stone-500 text-sm font-light">{t['ai.noPostsSubtext']}</p>
       </div>
     )}
   </div>
