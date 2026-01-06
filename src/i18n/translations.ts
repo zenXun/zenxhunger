@@ -104,3 +104,4 @@ export const translations = {
 export function getTranslations(locale: 'en' | 'zh') {
   return translations[locale];
 }
+

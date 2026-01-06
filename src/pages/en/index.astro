@@ -1,30 +1,30 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
-import { getTranslations } from '../i18n/translations';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { getTranslations } from "../../i18n/translations";
 
 const { currentLocale } = Astro;
-const t = getTranslations(currentLocale as 'en' | 'zh');
+const t = getTranslations(currentLocale as "en" | "zh");
 
-const aiPosts = (await getCollection('ai'))
+const aiPosts = (await getCollection("ai"))
   .filter(post => post.data.locale === currentLocale)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
 
-const libraryPosts = (await getCollection('library'))
+const libraryPosts = (await getCollection("library"))
   .filter(post => post.data.locale === currentLocale)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
 
-const xrPosts = (await getCollection('xr'))
+const xrPosts = (await getCollection("xr"))
   .filter(post => post.data.locale === currentLocale)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
 
 const statusColors = {
-  seed: 'bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 border border-amber-200/50 dark:border-amber-800/50',
-  sapling: 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-800/50',
-  evergreen: 'bg-sky-50 dark:bg-sky-950/30 text-sky-700 dark:text-sky-400 border border-sky-200/50 dark:border-sky-800/50',
+  seed: "bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 border border-amber-200/50 dark:border-amber-800/50",
+  sapling: "bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-800/50",
+  evergreen: "bg-sky-50 dark:bg-sky-950/30 text-sky-700 dark:text-sky-400 border border-sky-200/50 dark:border-sky-800/50",
 };
 ---
 
@@ -36,30 +36,33 @@ const statusColors = {
           Zen X Hunger
         </h1>
         <p class="text-2xl sm:text-3xl text-stone-500 dark:text-stone-400 font-light tracking-wide">
-          思考 · 探索 · 品味
+          Thinking · Exploring · Tasting
         </p>
       </div>
       <div class="w-16 h-px bg-gradient-to-r from-transparent via-emerald-700/30 dark:via-emerald-500/30 to-transparent mx-auto"></div>
       <div class="max-w-3xl mx-auto pt-8">
         <div class="space-y-6 text-left">
-          <h2 class="text-2xl sm:text-3xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight">创作者宣言</h2>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight">Creator Manifesto</h2>
           <p class="text-lg text-stone-600 dark:text-stone-400 leading-relaxed font-light">
-            这是一个让想法从种子成长为树苗，再成为常青树的空间。 在这里，我记录着在AI探索、文学反思和空间计算研究中的旅程。 每一篇都是思考的瞬间——捕捉好奇心、实验和沿途培养的品味。
+            This is a space where ideas evolve from seeds to saplings to evergreens.
+            Here I document my journey through AI explorations, literary reflections,
+            and spatial computing research. Every entry is a snapshot of thinking in motion—
+            capturing curiosity, experiments, and the taste developed along the way.
           </p>
           <p class="text-lg text-stone-600 dark:text-stone-400 leading-relaxed font-light italic">
-            未完成。未打磨。但诚实且持续成长。
+            Not finished. Not polished. But honest and continuously growing.
           </p>
         </div>
       </div>
     </div>
   </section>
   <section class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
-    <h2 class="text-3xl sm:text-4xl font-semibold text-stone-900 dark:text-stone-100 mb-16 tracking-tight">最新文章</h2>
+    <h2 class="text-3xl sm:text-4xl font-semibold text-stone-900 dark:text-stone-100 mb-16 tracking-tight">Latest Entries</h2>
     <div class="mb-20">
       <div class="flex items-center justify-between mb-8">
-        <h3 class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight">{t['nav.ai']}</h3>
-        <a href="/ai" class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group">
-          {t['viewAll']}
+        <h3 class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight">{t["nav.ai"]}</h3>
+        <a href="/en/ai" class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group">
+          {t["viewAll"]}
           <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>
@@ -70,15 +73,15 @@ const statusColors = {
           {aiPosts.map((post) => (
             <article class="group bg-white dark:bg-stone-900/50 rounded-xl border border-stone-200/80 dark:border-stone-800/80 p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-stone-300/80 dark:hover:border-stone-700/80 hover:-translate-y-1 transition-all duration-300">
               <div class="flex items-center gap-2.5 mb-4">
-                <span class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}>
+                <span class={}>
                   {post.data.status}
                 </span>
                 <time class="text-xs text-stone-500 dark:text-stone-400 font-light">
-                  {post.data.pubDate.toLocaleDateString(currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })}
+                  {post.data.pubDate.toLocaleDateString(currentLocale, { year: "numeric", month: "short", day: "numeric" })}
                 </time>
               </div>
               <h4 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-3 line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-500 transition-colors duration-200">
-                <a href={`/ai/${post.slug}`}>
+                <a href={}>
                   {post.data.title}
                 </a>
               </h4>
@@ -94,14 +97,14 @@ const statusColors = {
           ))}
         </div>
       ) : (
-        <p class="text-stone-500 dark:text-stone-400 italic font-light">{t['ai.noPosts']}</p>
+        <p class="text-stone-500 dark:text-stone-400 italic font-light">{t["ai.noPosts"]}</p>
       )}
     </div>
     <div class="mb-20">
       <div class="flex items-center justify-between mb-8">
-        <h3 class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight">{t['nav.library']}</h3>
-        <a href="/library" class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group">
-          {t['viewAll']}
+        <h3 class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight">{t["nav.library"]}</h3>
+        <a href="/en/library" class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group">
+          {t["viewAll"]}
           <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>
@@ -112,15 +115,15 @@ const statusColors = {
           {libraryPosts.map((post) => (
             <article class="group bg-white dark:bg-stone-900/50 rounded-xl border border-stone-200/80 dark:border-stone-800/80 p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-stone-300/80 dark:hover:border-stone-700/80 hover:-translate-y-1 transition-all duration-300">
               <div class="flex items-center gap-2.5 mb-4">
-                <span class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}>
+                <span class={}>
                   {post.data.status}
                 </span>
                 <time class="text-xs text-stone-500 dark:text-stone-400 font-light">
-                  {post.data.pubDate.toLocaleDateString(currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })}
+                  {post.data.pubDate.toLocaleDateString(currentLocale, { year: "numeric", month: "short", day: "numeric" })}
                 </time>
               </div>
               <h4 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-3 line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-500 transition-colors duration-200">
-                <a href={`/library/${post.slug}`}>
+                <a href={}>
                   {post.data.title}
                 </a>
               </h4>
@@ -136,14 +139,14 @@ const statusColors = {
           ))}
         </div>
       ) : (
-        <p class="text-stone-500 dark:text-stone-400 italic font-light">{t['library.noPosts']}</p>
+        <p class="text-stone-500 dark:text-stone-400 italic font-light">{t["library.noPosts"]}</p>
       )}
     </div>
     <div class="mb-20">
       <div class="flex items-center justify-between mb-8">
-        <h3 class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight">{t['nav.xr']}</h3>
-        <a href="/xr" class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group">
-          {t['viewAll']}
+        <h3 class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight">{t["nav.xr"]}</h3>
+        <a href="/en/xr" class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group">
+          {t["viewAll"]}
           <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>
@@ -154,15 +157,15 @@ const statusColors = {
           {xrPosts.map((post) => (
             <article class="group bg-white dark:bg-stone-900/50 rounded-xl border border-stone-200/80 dark:border-stone-800/80 p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-stone-300/80 dark:hover:border-stone-700/80 hover:-translate-y-1 transition-all duration-300">
               <div class="flex items-center gap-2.5 mb-4">
-                <span class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}>
+                <span class={}>
                   {post.data.status}
                 </span>
                 <time class="text-xs text-stone-500 dark:text-stone-400 font-light">
-                  {post.data.pubDate.toLocaleDateString(currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })}
+                  {post.data.pubDate.toLocaleDateString(currentLocale, { year: "numeric", month: "short", day: "numeric" })}
                 </time>
               </div>
               <h4 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-3 line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-500 transition-colors duration-200">
-                <a href={`/xr/${post.slug}`}>
+                <a href={}>
                   {post.data.title}
                 </a>
               </h4>
@@ -178,8 +181,9 @@ const statusColors = {
           ))}
         </div>
       ) : (
-        <p class="text-stone-500 dark:text-stone-400 italic font-light">{t['xr.noPosts']}</p>
+        <p class="text-stone-500 dark:text-stone-400 italic font-light">{t["xr.noPosts"]}</p>
       )}
     </div>
   </section>
 </BaseLayout>
+

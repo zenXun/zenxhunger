@@ -1,0 +1,81 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import { getTranslations } from "../../../../i18n/translations";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("ai", ({ data }) => {
+    return data.locale === "en";
+  });
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { currentLocale } = Astro;
+const t = getTranslations(currentLocale as "en" | "zh");
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const statusColors = {
+  seed: "bg-amber-50 text-amber-700 border border-amber-200/50",
+  sapling: "bg-emerald-50 text-emerald-700 border border-emerald-200/50",
+  evergreen: "bg-sky-50 text-sky-700 border border-sky-200/50",
+};
+---
+
+<BaseLayout title={} description={post.data.description}>
+  <article class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
+    <nav class="mb-12 text-sm text-stone-600 font-light">
+      <a href="/en" class="hover:text-emerald-700 transition-all duration-200">{t["nav.home"]}</a>
+      <span class="mx-2 text-stone-400">/</span>
+      <a href="/en/ai" class="hover:text-emerald-700 transition-all duration-200">{t["nav.ai"]}</a>
+      <span class="mx-2 text-stone-400">/</span>
+      <span class="text-stone-900 line-clamp-1">{post.data.title}</span>
+    </nav>
+    <header class="mb-16 space-y-6">
+      <div class="flex items-center gap-3">
+        <span class={}>
+          {post.data.status}
+        </span>
+        <time class="text-sm text-stone-500 font-light">
+          {post.data.pubDate.toLocaleDateString(currentLocale, {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+          })}
+        </time>
+      </div>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-stone-900 leading-tight tracking-tight">
+        {post.data.title}
+      </h1>
+      <p class="text-xl text-stone-600 leading-relaxed font-light">
+        {post.data.description}
+      </p>
+      <div class="w-16 h-px bg-gradient-to-r from-emerald-700/30 to-transparent"></div>
+      <div class="flex flex-wrap gap-2.5">
+        {post.data.tags.map((tag) => (
+          <span class="text-sm text-stone-600 bg-stone-100/80 px-3 py-1.5 rounded-md font-light">
+            #{tag}
+          </span>
+        ))}
+      </div>
+    </header>
+    <div class="prose prose-stone prose-lg max-w-none dark:prose-invert">
+      <Content />
+    </div>
+    <footer class="mt-20 pt-10 border-t border-stone-200/60">
+      <a
+        href="/en/ai"
+        class="inline-flex items-center gap-2 text-sm font-medium text-stone-700 hover:text-emerald-700 transition-all duration-200 group"
+      >
+        <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        {t["backToAI"]}
+      </a>
+    </footer>
+  </article>
+</BaseLayout>
+
