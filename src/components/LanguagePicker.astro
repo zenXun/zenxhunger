@@ -1,17 +1,25 @@
 ---
 const { currentLocale, url } = Astro;
-const locales = ['en', 'zh'];
+const defaultLocale = 'zh'; // Astro.i18n is undefined, so hardcode for now
+const locales = ['zh', 'en'];
 
 // Replace the current locale prefix with the new one
-function getTranslatedUrl(locale: string): string {
-  const pathParts = url.pathname.split('/').filter(part => part);
+function getTranslatedUrl(targetLocale: string): string {
+  const path = url.pathname;
+  const pathParts = path.split('/').filter(part => part);
+
+  // If the current path has a locale prefix, remove it
   if (pathParts.length > 0 && locales.includes(pathParts[0])) {
-    pathParts[0] = locale;
-  } else {
-    // If no locale prefix is present (e.g., at the root), add it.
-    pathParts.unshift(locale);
+    pathParts.shift();
   }
-  return `/${pathParts.join('/')}`;
+
+  const newPath = pathParts.join('/');
+
+  if (targetLocale === defaultLocale) {
+    return `/${newPath}`;
+  } else {
+    return `/${targetLocale}/${newPath}`;
+  }
 }
 
 const flags: { [key: string]: string } = {

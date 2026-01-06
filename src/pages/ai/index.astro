@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { getTranslations } from '../../../i18n/translations';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getTranslations } from '../../i18n/translations';
 
 const { currentLocale } = Astro;
 const t = getTranslations(currentLocale as 'en' | 'zh');
@@ -26,7 +26,7 @@ const statusColors = {
     <!-- Header -->
     <header class="mb-16">
       <nav class="mb-8 text-sm text-stone-600 dark:text-stone-400 font-light">
-        <a href={`/${currentLocale}`} class="hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200">{t['nav.home']}</a>
+        <a href="/" class="hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200">{t['nav.home']}</a>
         <span class="mx-2 text-stone-400 dark:text-stone-500">/</span>
         <span class="text-stone-900 dark:text-stone-100">{t['ai.title']}</span>
       </nav>
@@ -60,7 +60,7 @@ const statusColors = {
             </div>
 
             <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-3 line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-500 transition-colors duration-200">
-              <a href={`/${currentLocale}/ai/${post.slug}`}>
+              <a href={`/ai/${post.slug}`}>
                 {post.data.title}
               </a>
             </h2>
@@ -78,7 +78,7 @@ const statusColors = {
             </div>
 
             <a
-              href={`/${currentLocale}/ai/${post.slug}`}
+              href={`/ai/${post.slug}`}
               class="inline-flex items-center text-sm font-medium text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 group/link"
             >
               {t['ai.readMore']}
