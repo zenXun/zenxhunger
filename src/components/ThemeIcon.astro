@@ -3,9 +3,8 @@
 ---
 
 <button
-  id="theme-toggle"
   type="button"
-  class="p-2 rounded-lg text-stone-600 hover:text-stone-900 hover:bg-stone-100/80 dark:text-stone-400 dark:hover:text-stone-100 dark:hover:bg-stone-800/80 focus:outline-none focus:ring-2 focus:ring-emerald-600 transition-all duration-200"
+  class="theme-toggle p-2 rounded-lg text-stone-600 hover:text-stone-900 hover:bg-stone-100/80 dark:text-stone-400 dark:hover:text-stone-100 dark:hover:bg-stone-800/80 focus:outline-none focus:ring-2 focus:ring-emerald-600 transition-all duration-200"
   aria-label="Toggle theme"
 >
   <!-- Sun Icon (shows in dark mode) -->
@@ -40,35 +39,3 @@
     />
   </svg>
 </button>
-
-<script is:inline>
-  (function() {
-    function setTheme(theme) {
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-    }
-
-    function toggleTheme() {
-      var isDark = document.documentElement.classList.contains('dark');
-      setTheme(isDark ? 'light' : 'dark');
-    }
-
-    function initThemeToggle() {
-      var themeToggle = document.getElementById('theme-toggle');
-      if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-      }
-    }
-
-    // Initialize on page load
-    initThemeToggle();
-
-    // Re-initialize after view transitions
-    document.addEventListener('astro:after-swap', initThemeToggle);
-  })();
-</script>

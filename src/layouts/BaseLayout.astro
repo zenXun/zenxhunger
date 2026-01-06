@@ -139,6 +139,41 @@ const {
       button?.addEventListener('click', () => {
         menu?.classList.toggle('hidden');
       });
+
+      // Theme toggle handler - using event delegation
+      (function() {
+        // Prevent multiple initializations
+        if (window.themeToggleInitialized) {
+          return;
+        }
+        window.themeToggleInitialized = true;
+
+        function setTheme(theme) {
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+          }
+        }
+
+        function handleThemeToggle(event) {
+          // Check if the clicked element or its parent is a theme toggle button
+          const target = event.target.closest('.theme-toggle');
+          if (!target) return;
+
+          event.preventDefault();
+          event.stopPropagation();
+          
+          const isDark = document.documentElement.classList.contains('dark');
+          setTheme(isDark ? 'light' : 'dark');
+        }
+
+        // Use event delegation - attach listener to document
+        // This works for all theme toggle buttons, even if they're added dynamically
+        document.addEventListener('click', handleThemeToggle);
+      })();
     </script>
   </body>
 </html>
