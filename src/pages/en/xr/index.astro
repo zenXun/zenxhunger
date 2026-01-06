@@ -16,7 +16,7 @@ const statusColors = {
 ---
 
 <BaseLayout
-  title={}
+  title={`${t["nav.xr"]} - Zen X Hunger`}
   description="VR/AR industry research and spatial computing analysis"
 >
   <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
@@ -41,7 +41,7 @@ const statusColors = {
         {posts.map((post) => (
           <article class="group bg-white dark:bg-stone-900/50 rounded-xl border border-stone-200/80 dark:border-stone-800/80 p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-stone-300/80 dark:hover:border-stone-700/80 hover:-translate-y-1 transition-all duration-300">
             <div class="flex items-center gap-2.5 mb-4">
-              <span class={}>
+              <span class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}>
                 {post.data.status}
               </span>
               <time class="text-xs text-stone-500 dark:text-stone-400 font-light">
@@ -53,7 +53,7 @@ const statusColors = {
               </time>
             </div>
             <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-3 line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-500 transition-colors duration-200">
-              <a href={}>
+              <a href={`/en/xr/${post.slug}`}>
                 {post.data.title}
               </a>
             </h2>
@@ -68,7 +68,7 @@ const statusColors = {
               ))}
             </div>
             <a
-              href={}
+              href={`/en/xr/${post.slug}`}
               class="inline-flex items-center text-sm font-medium text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 group/link"
             >
               {t["ai.readMore"]}
@@ -87,4 +87,3 @@ const statusColors = {
     )}
   </div>
 </BaseLayout>
-

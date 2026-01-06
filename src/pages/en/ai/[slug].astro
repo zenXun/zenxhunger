@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../../../../layouts/BaseLayout.astro";
-import { getTranslations } from "../../../../i18n/translations";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getTranslations } from "../../../i18n/translations";
 
 export async function getStaticPaths() {
   const posts = await getCollection("ai", ({ data }) => {
@@ -25,7 +25,7 @@ const statusColors = {
 };
 ---
 
-<BaseLayout title={} description={post.data.description}>
+<BaseLayout title={`${post.data.title} - Zen X Hunger`} description={post.data.description}>
   <article class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
     <nav class="mb-12 text-sm text-stone-600 font-light">
       <a href="/en" class="hover:text-emerald-700 transition-all duration-200">{t["nav.home"]}</a>
@@ -36,7 +36,7 @@ const statusColors = {
     </nav>
     <header class="mb-16 space-y-6">
       <div class="flex items-center gap-3">
-        <span class={}>
+        <span class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}>
           {post.data.status}
         </span>
         <time class="text-sm text-stone-500 font-light">
@@ -78,4 +78,3 @@ const statusColors = {
     </footer>
   </article>
 </BaseLayout>
-
