@@ -6,9 +6,12 @@ const baseSchema = z.object({
   pubDate: z.coerce.date(),
   description: z.string(),
   tags: z.array(z.string()),
-  status: z.enum(['seed', 'sapling', 'evergreen']),
+  status: z.enum(['Seed', 'Sapling', 'Evergreen']).default('Seed'),
   locale: z.enum(['en', 'zh']).optional().default('en'),
   slug: z.string().optional(), // Custom slug for i18n mapping
+  draft: z.boolean().default(true),
+  book_title: z.string().optional(),
+  rating: z.number().min(1).max(5).optional(),
 });
 
 // AI collection - explorations, code, dev thoughts

@@ -5,7 +5,7 @@ import { getTranslations } from "@/i18n/translations";
 
 export async function getStaticPaths() {
   const posts = await getCollection("xr", ({ data }) => {
-    return data.locale === "zh";
+    return data.locale === "zh" && (import.meta.env.PROD ? !data.draft : true);
   });
   return posts.map((post) => ({
     params: { slug: post.slug.split("/").pop() },
@@ -19,9 +19,9 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 
 const statusColors = {
-  seed: "bg-amber-50 text-amber-700 border border-amber-200/50",
-  sapling: "bg-emerald-50 text-emerald-700 border border-emerald-200/50",
-  evergreen: "bg-sky-50 text-sky-700 border border-sky-200/50",
+  Seed: "bg-amber-50 text-amber-700 border border-amber-200/50",
+  Sapling: "bg-emerald-50 text-emerald-700 border border-emerald-200/50",
+  Evergreen: "bg-sky-50 text-sky-700 border border-sky-200/50",
 };
 ---
 

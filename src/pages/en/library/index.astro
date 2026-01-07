@@ -7,14 +7,18 @@ const { currentLocale } = Astro;
 const t = getTranslations(currentLocale as "en" | "zh");
 
 const posts = (await getCollection("library"))
-  .filter((post) => post.data.locale === currentLocale)
+  .filter(
+    (post) =>
+      post.data.locale === currentLocale &&
+      (import.meta.env.PROD ? !post.data.draft : true),
+  )
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const statusColors = {
-  seed: "bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 border border-amber-200/50 dark:border-amber-800/50",
-  sapling:
+  Seed: "bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 border border-amber-200/50 dark:border-amber-800/50",
+  Sapling:
     "bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-800/50",
-  evergreen:
+  Evergreen:
     "bg-sky-50 dark:bg-sky-950/30 text-sky-700 dark:text-sky-400 border border-sky-200/50 dark:border-sky-800/50",
 };
 ---
