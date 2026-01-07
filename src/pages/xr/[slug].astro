@@ -1,8 +1,7 @@
 ---
-import { getCollection } from "astro:content";
+import { type CollectionEntry, getCollection, getEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getTranslations } from "@/i18n/translations";
-
 export async function getStaticPaths() {
   const posts = await getCollection("xr", ({ data }) => {
     return data.locale === "zh" && (import.meta.env.PROD ? !data.draft : true);
@@ -12,30 +11,48 @@ export async function getStaticPaths() {
     props: { post },
   }));
 }
-
 const { currentLocale } = Astro;
 const t = getTranslations(currentLocale as "en" | "zh");
+const { slug } = Astro.params;
 const { post } = Astro.props;
-const { Content } = await post.render();
 
+// Smart Language Switching Logic
+const otherLocale = "en";
+const baseSlug = post.slug.split("/").pop();
+const otherSlug = `${otherLocale}/${baseSlug}`;
+const otherPost = await getEntry("xr", otherSlug);
+const isOtherVisible =
+  otherPost && (import.meta.env.PROD ? !otherPost.data.draft : true);
+
+const translatedUrls = {
+  zh: `/xr/${baseSlug}`,
+  en: isOtherVisible ? `/en/xr/${baseSlug}` : `/en/xr`,
+};
+
+const { Content } = await post.render();
 const statusColors = {
-  Seed: "bg-amber-50 text-amber-700 border border-amber-200/50",
-  Sapling: "bg-emerald-50 text-emerald-700 border border-emerald-200/50",
-  Evergreen: "bg-sky-50 text-sky-700 border border-sky-200/50",
+  Seed: "bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 border border-amber-200/50 dark:border-amber-800/50",
+  Sapling:
+    "bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-800/50",
+  Evergreen:
+    "bg-sky-50 dark:bg-sky-950/30 text-sky-700 dark:text-sky-400 border border-sky-200/50 dark:border-sky-800/50",
 };
 ---
 
 <BaseLayout
   title={`${post.data.title} - Zen X Hunger`}
   description={post.data.description}
+  translatedUrls={translatedUrls}
 >
-  <article class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
+  <article class="max-w-4xl
+mx-auto px-6 sm:px-8 lg:px-12 py-20">
     <nav class="mb-12 text-sm text-stone-600 font-light">
       <a href="/" class="hover:text-emerald-700 transition-all duration-200"
         >{t["nav.home"]}</a
       >
       <span class="mx-2 text-stone-400">/</span>
-      <a href="/xr" class="hover:text-emerald-700 transition-all duration-200"
+      <a href="/xr" class="hover:text-emerald-700
+transition-all duration-200"
         >{t["nav.xr"]}</a
       >
       <span class="mx-2 text-stone-400">/</span>
@@ -44,7 +61,8 @@ const statusColors = {
     <header class="mb-16 space-y-6">
       <div class="flex items-center gap-3">
         <span
-          class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
+          class={`text-xs
+font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
         >
           {post.data.status}
         </span>
@@ -59,37 +77,49 @@ const statusColors = {
         </time>
       </div>
       <h1
-        class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-stone-900 leading-tight tracking-tight"
+        class="font-serif text-4xl
+sm:text-5xl lg:text-6xl font-semibold text-stone-900 leading-tight
+tracking-tight"
       >
         {post.data.title}
       </h1>
-      <p class="text-xl text-stone-600 leading-relaxed font-light">
+      <p class="text-xl text-stone-600
+leading-relaxed font-light">
         {post.data.description}
       </p>
-      <div
-        class="w-16 h-px bg-gradient-to-r from-emerald-700/30 to-transparent"
-      >
+      <div class="w-16 h-px
+bg-gradient-to-r from-emerald-700/30 to-transparent">
       </div>
-      <div class="flex flex-wrap gap-2.5">
+      <div class="flex
+flex-wrap gap-2.5">
         {
           post.data.tags.map((tag) => (
-            <span class="text-sm text-stone-600 bg-stone-100/80 px-3 py-1.5 rounded-md font-light">
+            <span
+              class="text-sm
+text-stone-600 bg-stone-100/80 px-3 py-1.5 rounded-md font-light"
+            >
+              {" "}
               #{tag}
             </span>
           ))
         }
       </div>
     </header>
-    <div class="prose prose-stone prose-lg max-w-none dark:prose-invert">
+    <div class="prose prose-stone prose-lg max-w-none
+dark:prose-invert">
       <Content />
     </div>
-    <footer class="mt-20 pt-10 border-t border-stone-200/60">
+    <footer class="mt-20 pt-10 border-t
+border-stone-200/60">
       <a
         href="/xr"
-        class="inline-flex items-center gap-2 text-sm font-medium text-stone-700 hover:text-emerald-700 transition-all duration-200 group"
+        class="inline-flex items-center gap-2
+text-sm font-medium text-stone-700 hover:text-emerald-700 transition-all
+duration-200 group"
       >
         <svg
-          class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform duration-200"
+          class="w-4 h-4 transform group-hover:-translate-x-1
+transition-transform duration-200"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
