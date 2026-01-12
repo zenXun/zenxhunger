@@ -2,6 +2,7 @@
 import ThemeIcon from "../components/ThemeIcon.astro";
 import LanguagePicker from "../components/LanguagePicker.astro";
 import { getTranslations } from "../i18n/translations";
+import Analytics from "@vercel/analytics/astro";
 import "../styles/global.css";
 
 interface Props {
@@ -261,10 +262,9 @@ const {
           setTheme(isDark ? "light" : "dark");
         }
 
-        // Use event delegation - attach listener to document
-        // This works for all theme toggle buttons, even if they're added dynamically
         document.addEventListener("click", handleThemeToggle);
       })();
     </script>
+    <Analytics />
   </body>
 </html>
