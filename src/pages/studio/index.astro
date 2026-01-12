@@ -6,7 +6,7 @@ import { getTranslations } from "@/i18n/translations";
 const { currentLocale } = Astro;
 const t = getTranslations(currentLocale as "en" | "zh");
 
-const posts = (await getCollection("ai"))
+const posts = (await getCollection("studio"))
   .filter(
     (post) =>
       post.data.locale === currentLocale &&
@@ -24,8 +24,8 @@ const statusColors = {
 ---
 
 <BaseLayout
-  title={`${t["ai.title"]} - Zen X Hunger`}
-  description={t["ai.description"]}
+  title={`${t["studio.title"]} - Zen X Hunger`}
+  description={t["studio.description"]}
 >
   <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
     <header class="mb-16">
@@ -36,19 +36,21 @@ const statusColors = {
           >{t["nav.home"]}</a
         >
         <span class="mx-2 text-stone-400 dark:text-stone-500">/</span>
-        <span class="text-stone-900 dark:text-stone-100">{t["ai.title"]}</span>
+        <span class="text-stone-900 dark:text-stone-100"
+          >{t["studio.title"]}</span
+        >
       </nav>
 
       <div class="space-y-4">
         <h1
           class="text-5xl sm:text-6xl font-semibold text-stone-900 dark:text-stone-100 tracking-tight"
         >
-          {t["ai.title"]}
+          {t["studio.title"]}
         </h1>
         <p
           class="text-xl text-stone-600 dark:text-stone-400 max-w-3xl font-light leading-relaxed"
         >
-          {t["ai.description"]}
+          {t["studio.description"]}
         </p>
       </div>
     </header>
@@ -72,7 +74,7 @@ const statusColors = {
                 </time>
               </div>
               <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-3 line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-500 transition-colors duration-200">
-                <a href={`/ai/${post.slug.split("/").pop()}`}>
+                <a href={`/studio/${post.slug.split("/").pop()}`}>
                   {post.data.title}
                 </a>
               </h2>
@@ -87,10 +89,10 @@ const statusColors = {
                 ))}
               </div>
               <a
-                href={`/ai/${post.slug.split("/").pop()}`}
+                href={`/studio/${post.slug.split("/").pop()}`}
                 class="inline-flex items-center text-sm font-medium text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 group/link"
               >
-                {t["ai.readMore"]}
+                {t["studio.readMore"]}
                 <svg
                   class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1 transition-transform duration-200"
                   fill="none"
@@ -111,10 +113,10 @@ const statusColors = {
       ) : (
         <div class="text-center py-20">
           <p class="text-stone-500 dark:text-stone-400 text-lg mb-2 font-light">
-            {t["ai.noPosts"]}
+            {t["studio.noPosts"]}
           </p>
           <p class="text-stone-400 dark:text-stone-500 text-sm font-light">
-            {t["ai.noPostsSubtext"]}
+            {t["studio.noPostsSubtext"]}
           </p>
         </div>
       )

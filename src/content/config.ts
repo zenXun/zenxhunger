@@ -14,8 +14,8 @@ const baseSchema = z.object({
   rating: z.number().min(1).max(5).optional(),
 });
 
-// AI collection - explorations, code, dev thoughts
-const aiCollection = defineCollection({
+// Studio collection - Learning notes, AI, Tech explorations (was AI)
+const studioCollection = defineCollection({
   type: 'content',
   schema: baseSchema,
 });
@@ -26,14 +26,21 @@ const libraryCollection = defineCollection({
   schema: baseSchema,
 });
 
-// XR collection - VR/AR research, spatial computing
-const xrCollection = defineCollection({
+// Cafe collection - Personal thoughts, essays, "Manager to IC" (was XR)
+const cafeCollection = defineCollection({
+  type: 'content',
+  schema: baseSchema,
+});
+
+// Club collection - Hobbies, Poker, Recreation
+const clubCollection = defineCollection({
   type: 'content',
   schema: baseSchema,
 });
 
 export const collections = {
-  'ai': aiCollection,
+  'studio': studioCollection,
   'library': libraryCollection,
-  'xr': xrCollection,
+  'cafe': cafeCollection,
+  'club': clubCollection,
 };

@@ -1,0 +1,123 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getTranslations } from "@/i18n/translations";
+
+const { currentLocale } = Astro;
+const t = getTranslations(currentLocale as "en" | "zh");
+
+const posts = (await getCollection("club"))
+  .filter(
+    (post) =>
+      post.data.locale === currentLocale &&
+      (import.meta.env.PROD ? !post.data.draft : true),
+  )
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const statusColors = {
+  Seed: "bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 border border-amber-200/50 dark:border-amber-800/50",
+  Sapling:
+    "bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-800/50",
+  Evergreen:
+    "bg-sky-50 dark:bg-sky-950/30 text-sky-700 dark:text-sky-400 border border-sky-200/50 dark:border-sky-800/50",
+};
+---
+
+<BaseLayout
+  title={`${t["club.title"]} - Zen X Hunger`}
+  description={t["club.description"]}
+>
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
+    <header class="mb-16">
+      <nav class="mb-8 text-sm text-stone-600 dark:text-stone-400 font-light">
+        <a
+          href="/en"
+          class="hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200"
+          >{t["nav.home"]}</a
+        >
+        <span class="mx-2 text-stone-400 dark:text-stone-500">/</span>
+        <span class="text-stone-900 dark:text-stone-100">{t["club.title"]}</span
+        >
+      </nav>
+      <div class="space-y-4">
+        <h1
+          class="text-5xl sm:text-6xl font-semibold text-stone-900 dark:text-stone-100 tracking-tight"
+        >
+          {t["club.title"]}
+        </h1>
+        <p
+          class="text-xl text-stone-600 dark:text-stone-400 max-w-3xl font-light leading-relaxed"
+        >
+          {t["club.description"]}
+        </p>
+      </div>
+    </header>
+    {
+      posts.length > 0 ? (
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => (
+            <article class="group bg-white dark:bg-stone-900/50 rounded-xl border border-stone-200/80 dark:border-stone-800/80 p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-stone-300/80 dark:hover:border-stone-700/80 hover:-translate-y-1 transition-all duration-300">
+              <div class="flex items-center gap-2.5 mb-4">
+                <span
+                  class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
+                >
+                  {post.data.status}
+                </span>
+                <time class="text-xs text-stone-500 dark:text-stone-400 font-light">
+                  {post.data.pubDate.toLocaleDateString(currentLocale, {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </time>
+              </div>
+              <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-3 line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-500 transition-colors duration-200">
+                <a href={`/en/club/${post.slug.split("/").pop()}`}>
+                  {post.data.title}
+                </a>
+              </h2>
+              <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-5 line-clamp-3 font-light">
+                {post.data.description}
+              </p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                {post.data.tags.slice(0, 4).map((tag) => (
+                  <span class="text-xs text-stone-500 dark:text-stone-400 bg-stone-100/80 dark:bg-stone-800/80 px-2.5 py-1 rounded-md font-light">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={`/en/club/${post.slug.split("/").pop()}`}
+                class="inline-flex items-center text-sm font-medium text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 group/link"
+              >
+                {t["club.readMore"]}
+                <svg
+                  class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1 transition-transform duration-200"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-20">
+          <p class="text-stone-500 dark:text-stone-400 text-lg mb-2 font-light">
+            {t["club.noPosts"]}
+          </p>
+          <p class="text-stone-400 dark:text-stone-500 text-sm font-light">
+            {t["club.noPostsSubtext"]}
+          </p>
+        </div>
+      )
+    }
+  </div>
+</BaseLayout>

@@ -3,8 +3,8 @@ import { type CollectionEntry, getCollection, getEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getTranslations } from "@/i18n/translations";
 export async function getStaticPaths() {
-  const posts = await getCollection("xr", ({ data }) => {
-    return data.locale === "zh" && (import.meta.env.PROD ? !data.draft : true);
+  const posts = await getCollection("club", ({ data }) => {
+    return data.locale === "en" && (import.meta.env.PROD ? !data.draft : true);
   });
   return posts.map((post) => ({
     params: { slug: post.slug.split("/").pop() },
@@ -17,16 +17,16 @@ const { slug } = Astro.params;
 const { post } = Astro.props;
 
 // Smart Language Switching Logic
-const otherLocale = "en";
+const otherLocale = "zh";
 const baseSlug = post.slug.split("/").pop();
 const otherSlug = `${otherLocale}/${baseSlug}`;
-const otherPost = await getEntry("xr", otherSlug);
+const otherPost = await getEntry("club", otherSlug);
 const isOtherVisible =
   otherPost && (import.meta.env.PROD ? !otherPost.data.draft : true);
 
 const translatedUrls = {
-  zh: `/xr/${baseSlug}`,
-  en: isOtherVisible ? `/en/xr/${baseSlug}` : `/en/xr`,
+  en: `/en/club/${baseSlug}`,
+  zh: isOtherVisible ? `/club/${baseSlug}` : `/club`,
 };
 
 const { Content } = await post.render();
@@ -47,13 +47,14 @@ const statusColors = {
   <article class="max-w-4xl
 mx-auto px-6 sm:px-8 lg:px-12 py-20">
     <nav class="mb-12 text-sm text-stone-600 font-light">
-      <a href="/" class="hover:text-emerald-700 transition-all duration-200"
+      <a href="/en" class="hover:text-emerald-700 transition-all duration-200"
         >{t["nav.home"]}</a
       >
       <span class="mx-2 text-stone-400">/</span>
-      <a href="/xr" class="hover:text-emerald-700
-transition-all duration-200"
-        >{t["nav.xr"]}</a
+      <a
+        href="/en/club"
+        class="hover:text-emerald-700 transition-all duration-200"
+        >{t["club.title"]}</a
       >
       <span class="mx-2 text-stone-400">/</span>
       <span class="text-stone-900 line-clamp-1">{post.data.title}</span>
@@ -112,14 +113,11 @@ dark:prose-invert">
     <footer class="mt-20 pt-10 border-t
 border-stone-200/60">
       <a
-        href="/xr"
-        class="inline-flex items-center gap-2
-text-sm font-medium text-stone-700 hover:text-emerald-700 transition-all
-duration-200 group"
+        href="/en/club"
+        class="inline-flex items-center gap-2 text-sm font-medium text-stone-700 hover:text-emerald-700 transition-all duration-200 group"
       >
         <svg
-          class="w-4 h-4 transform group-hover:-translate-x-1
-transition-transform duration-200"
+          class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform duration-200"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -130,7 +128,7 @@ transition-transform duration-200"
             stroke-width="2"
             d="M15 19l-7-7 7-7"></path>
         </svg>
-        {t["backToXR"]}
+        {t["backToClub"]}
       </a>
     </footer>
   </article>

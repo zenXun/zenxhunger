@@ -6,7 +6,7 @@ import { getTranslations } from "@/i18n/translations";
 const { currentLocale } = Astro;
 const t = getTranslations(currentLocale as "en" | "zh");
 
-const aiPosts = (await getCollection("ai"))
+const studioPosts = (await getCollection("studio"))
   .filter(
     (post) =>
       post.data.locale === currentLocale &&
@@ -24,7 +24,16 @@ const libraryPosts = (await getCollection("library"))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
 
-const xrPosts = (await getCollection("xr"))
+const cafePosts = (await getCollection("cafe"))
+  .filter(
+    (post) =>
+      post.data.locale === currentLocale &&
+      (import.meta.env.PROD ? !post.data.draft : true),
+  )
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const clubPosts = (await getCollection("club"))
   .filter(
     (post) =>
       post.data.locale === currentLocale &&
@@ -95,10 +104,10 @@ const statusColors = {
         <h3
           class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
         >
-          {t["nav.ai"]}
+          {t["nav.studio"]}
         </h3>
         <a
-          href="/ai"
+          href="/studio"
           class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
         >
           {t["viewAll"]}
@@ -117,9 +126,9 @@ const statusColors = {
         </a>
       </div>
       {
-        aiPosts.length > 0 ? (
+        studioPosts.length > 0 ? (
           <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {aiPosts.map((post) => (
+            {studioPosts.map((post) => (
               <article class="group bg-white dark:bg-stone-900/50 rounded-xl border border-stone-200/80 dark:border-stone-800/80 p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-stone-300/80 dark:hover:border-stone-700/80 hover:-translate-y-1 transition-all duration-300">
                 <div class="flex items-center gap-2.5 mb-4">
                   <span
@@ -136,7 +145,7 @@ const statusColors = {
                   </time>
                 </div>
                 <h4 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-3 line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-500 transition-colors duration-200">
-                  <a href={`/ai/${post.slug.split("/").pop()}`}>
+                  <a href={`/studio/${post.slug.split("/").pop()}`}>
                     {post.data.title}
                   </a>
                 </h4>
@@ -155,7 +164,7 @@ const statusColors = {
           </div>
         ) : (
           <p class="text-stone-500 dark:text-stone-400 italic font-light">
-            {t["ai.noPosts"]}
+            {t["studio.noPosts"]}
           </p>
         )
       }
@@ -235,10 +244,10 @@ const statusColors = {
         <h3
           class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
         >
-          {t["nav.xr"]}
+          {t["nav.cafe"]}
         </h3>
         <a
-          href="/xr"
+          href="/cafe"
           class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
         >
           {t["viewAll"]}
@@ -257,9 +266,9 @@ const statusColors = {
         </a>
       </div>
       {
-        xrPosts.length > 0 ? (
+        cafePosts.length > 0 ? (
           <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {xrPosts.map((post) => (
+            {cafePosts.map((post) => (
               <article class="group bg-white dark:bg-stone-900/50 rounded-xl border border-stone-200/80 dark:border-stone-800/80 p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-stone-300/80 dark:hover:border-stone-700/80 hover:-translate-y-1 transition-all duration-300">
                 <div class="flex items-center gap-2.5 mb-4">
                   <span
@@ -276,7 +285,7 @@ const statusColors = {
                   </time>
                 </div>
                 <h4 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-3 line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-500 transition-colors duration-200">
-                  <a href={`/xr/${post.slug.split("/").pop()}`}>
+                  <a href={`/cafe/${post.slug.split("/").pop()}`}>
                     {post.data.title}
                   </a>
                 </h4>
@@ -295,7 +304,77 @@ const statusColors = {
           </div>
         ) : (
           <p class="text-stone-500 dark:text-stone-400 italic font-light">
-            {t["xr.noPosts"]}
+            {t["cafe.noPosts"]}
+          </p>
+        )
+      }
+    </div>
+    <div class="mb-20">
+      <div class="flex items-center justify-between mb-8">
+        <h3
+          class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
+        >
+          {t["nav.club"]}
+        </h3>
+        <a
+          href="/club"
+          class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
+        >
+          {t["viewAll"]}
+          <svg
+            class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+      {
+        clubPosts.length > 0 ? (
+          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {clubPosts.map((post) => (
+              <article class="group bg-white dark:bg-stone-900/50 rounded-xl border border-stone-200/80 dark:border-stone-800/80 p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-stone-300/80 dark:hover:border-stone-700/80 hover:-translate-y-1 transition-all duration-300">
+                <div class="flex items-center gap-2.5 mb-4">
+                  <span
+                    class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
+                  >
+                    {post.data.status}
+                  </span>
+                  <time class="text-xs text-stone-500 dark:text-stone-400 font-light">
+                    {post.data.pubDate.toLocaleDateString(currentLocale, {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </time>
+                </div>
+                <h4 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-3 line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-500 transition-colors duration-200">
+                  <a href={`/club/${post.slug.split("/").pop()}`}>
+                    {post.data.title}
+                  </a>
+                </h4>
+                <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-5 line-clamp-3 font-light">
+                  {post.data.description}
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  {post.data.tags.slice(0, 3).map((tag) => (
+                    <span class="text-xs text-stone-500 dark:text-stone-400 bg-stone-100/80 dark:bg-stone-800/80 px-2.5 py-1 rounded-md font-light">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <p class="text-stone-500 dark:text-stone-400 italic font-light">
+            {t["club.noPosts"]}
           </p>
         )
       }
