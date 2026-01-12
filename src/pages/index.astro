@@ -56,37 +56,31 @@ const statusColors = {
     <div class="text-center space-y-8">
       <div class="space-y-4">
         <h1
-          class="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight text-stone-900 dark:text-stone-100 leading-tight"
+          class="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight text-primary leading-tight"
         >
           Zen X Hunger
         </h1>
-        <p
-          class="text-2xl sm:text-3xl text-stone-500 dark:text-stone-400 font-light tracking-wide"
-        >
+        <p class="text-2xl sm:text-3xl text-secondary font-light tracking-wide">
           思考 · 探索 · 品味
         </p>
       </div>
       <div
-        class="w-16 h-px bg-gradient-to-r from-transparent via-emerald-700/30 dark:via-emerald-500/30 to-transparent mx-auto"
+        class="w-16 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent mx-auto"
       >
       </div>
       <div class="max-w-3xl mx-auto pt-8">
         <div class="space-y-6 text-left">
           <h2
-            class="text-2xl sm:text-3xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
+            class="text-2xl sm:text-3xl font-semibold text-primary/90 tracking-tight"
           >
             创作者宣言
           </h2>
-          <p
-            class="text-lg text-stone-600 dark:text-stone-400 leading-relaxed font-light"
-          >
+          <p class="text-lg text-secondary leading-relaxed font-light">
             这是一个让想法从种子成长为树苗，再成为常青树的空间。
             在这里，我记录着在AI探索、文学反思和空间计算研究中的旅程。
             每一篇都是思考的瞬间——捕捉好奇心、实验和沿途培养的品味。
           </p>
-          <p
-            class="text-lg text-stone-600 dark:text-stone-400 leading-relaxed font-light italic"
-          >
+          <p class="text-lg text-secondary leading-relaxed font-light italic">
             未完成。未打磨。但诚实且持续成长。
           </p>
         </div>
@@ -95,7 +89,7 @@ const statusColors = {
   </section>
   <section class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
     <h2
-      class="text-3xl sm:text-4xl font-semibold text-stone-900 dark:text-stone-100 mb-16 tracking-tight"
+      class="text-3xl sm:text-4xl font-semibold text-primary mb-16 tracking-tight"
     >
       最新文章
     </h2>
@@ -129,14 +123,14 @@ const statusColors = {
         studioPosts.length > 0 ? (
           <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {studioPosts.map((post) => (
-              <article class="group bg-white dark:bg-stone-900/50 rounded-xl border border-stone-200/80 dark:border-stone-800/80 p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-stone-300/80 dark:hover:border-stone-700/80 hover:-translate-y-1 transition-all duration-300">
+              <article class="group bg-surface rounded-xl border border-border-subtle p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-border-subtle hover:-translate-y-1 transition-all duration-300">
                 <div class="flex items-center gap-2.5 mb-4">
                   <span
                     class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
                   >
                     {post.data.status}
                   </span>
-                  <time class="text-xs text-stone-500 dark:text-stone-400 font-light">
+                  <time class="text-xs text-secondary font-light">
                     {post.data.pubDate.toLocaleDateString(currentLocale, {
                       year: "numeric",
                       month: "short",
@@ -144,17 +138,17 @@ const statusColors = {
                     })}
                   </time>
                 </div>
-                <h4 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-3 line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-500 transition-colors duration-200">
+                <h4 class="text-xl font-semibold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-200">
                   <a href={`/studio/${post.slug.split("/").pop()}`}>
                     {post.data.title}
                   </a>
                 </h4>
-                <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-5 line-clamp-3 font-light">
+                <p class="text-sm text-secondary leading-relaxed mb-5 line-clamp-3 font-light">
                   {post.data.description}
                 </p>
                 <div class="flex flex-wrap gap-2">
                   {post.data.tags.slice(0, 3).map((tag) => (
-                    <span class="text-xs text-stone-500 dark:text-stone-400 bg-stone-100/80 dark:bg-stone-800/80 px-2.5 py-1 rounded-md font-light">
+                    <span class="text-xs text-secondary bg-muted px-2.5 py-1 rounded-md font-light">
                       #{tag}
                     </span>
                   ))}
@@ -199,14 +193,14 @@ const statusColors = {
         libraryPosts.length > 0 ? (
           <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {libraryPosts.map((post) => (
-              <article class="group bg-white dark:bg-stone-900/50 rounded-xl border border-stone-200/80 dark:border-stone-800/80 p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-stone-300/80 dark:hover:border-stone-700/80 hover:-translate-y-1 transition-all duration-300">
+              <article class="group bg-surface rounded-xl border border-border-subtle p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-border-subtle hover:-translate-y-1 transition-all duration-300">
                 <div class="flex items-center gap-2.5 mb-4">
                   <span
                     class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
                   >
                     {post.data.status}
                   </span>
-                  <time class="text-xs text-stone-500 dark:text-stone-400 font-light">
+                  <time class="text-xs text-secondary font-light">
                     {post.data.pubDate.toLocaleDateString(currentLocale, {
                       year: "numeric",
                       month: "short",
@@ -214,17 +208,17 @@ const statusColors = {
                     })}
                   </time>
                 </div>
-                <h4 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-3 line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-500 transition-colors duration-200">
+                <h4 class="text-xl font-semibold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-200">
                   <a href={`/library/${post.slug.split("/").pop()}`}>
                     {post.data.title}
                   </a>
                 </h4>
-                <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-5 line-clamp-3 font-light">
+                <p class="text-sm text-secondary leading-relaxed mb-5 line-clamp-3 font-light">
                   {post.data.description}
                 </p>
                 <div class="flex flex-wrap gap-2">
                   {post.data.tags.slice(0, 3).map((tag) => (
-                    <span class="text-xs text-stone-500 dark:text-stone-400 bg-stone-100/80 dark:bg-stone-800/80 px-2.5 py-1 rounded-md font-light">
+                    <span class="text-xs text-secondary bg-muted px-2.5 py-1 rounded-md font-light">
                       #{tag}
                     </span>
                   ))}
@@ -269,14 +263,14 @@ const statusColors = {
         cafePosts.length > 0 ? (
           <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {cafePosts.map((post) => (
-              <article class="group bg-white dark:bg-stone-900/50 rounded-xl border border-stone-200/80 dark:border-stone-800/80 p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-stone-300/80 dark:hover:border-stone-700/80 hover:-translate-y-1 transition-all duration-300">
+              <article class="group bg-surface rounded-xl border border-border-subtle p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-border-subtle hover:-translate-y-1 transition-all duration-300">
                 <div class="flex items-center gap-2.5 mb-4">
                   <span
                     class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
                   >
                     {post.data.status}
                   </span>
-                  <time class="text-xs text-stone-500 dark:text-stone-400 font-light">
+                  <time class="text-xs text-secondary font-light">
                     {post.data.pubDate.toLocaleDateString(currentLocale, {
                       year: "numeric",
                       month: "short",
@@ -284,17 +278,17 @@ const statusColors = {
                     })}
                   </time>
                 </div>
-                <h4 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-3 line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-500 transition-colors duration-200">
+                <h4 class="text-xl font-semibold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-200">
                   <a href={`/cafe/${post.slug.split("/").pop()}`}>
                     {post.data.title}
                   </a>
                 </h4>
-                <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-5 line-clamp-3 font-light">
+                <p class="text-sm text-secondary leading-relaxed mb-5 line-clamp-3 font-light">
                   {post.data.description}
                 </p>
                 <div class="flex flex-wrap gap-2">
                   {post.data.tags.slice(0, 3).map((tag) => (
-                    <span class="text-xs text-stone-500 dark:text-stone-400 bg-stone-100/80 dark:bg-stone-800/80 px-2.5 py-1 rounded-md font-light">
+                    <span class="text-xs text-secondary bg-muted px-2.5 py-1 rounded-md font-light">
                       #{tag}
                     </span>
                   ))}
@@ -339,14 +333,14 @@ const statusColors = {
         clubPosts.length > 0 ? (
           <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {clubPosts.map((post) => (
-              <article class="group bg-white dark:bg-stone-900/50 rounded-xl border border-stone-200/80 dark:border-stone-800/80 p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-stone-300/80 dark:hover:border-stone-700/80 hover:-translate-y-1 transition-all duration-300">
+              <article class="group bg-surface rounded-xl border border-border-subtle p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-border-subtle hover:-translate-y-1 transition-all duration-300">
                 <div class="flex items-center gap-2.5 mb-4">
                   <span
                     class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
                   >
                     {post.data.status}
                   </span>
-                  <time class="text-xs text-stone-500 dark:text-stone-400 font-light">
+                  <time class="text-xs text-secondary font-light">
                     {post.data.pubDate.toLocaleDateString(currentLocale, {
                       year: "numeric",
                       month: "short",
@@ -354,17 +348,17 @@ const statusColors = {
                     })}
                   </time>
                 </div>
-                <h4 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-3 line-clamp-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-500 transition-colors duration-200">
+                <h4 class="text-xl font-semibold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-200">
                   <a href={`/club/${post.slug.split("/").pop()}`}>
                     {post.data.title}
                   </a>
                 </h4>
-                <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-5 line-clamp-3 font-light">
+                <p class="text-sm text-secondary leading-relaxed mb-5 line-clamp-3 font-light">
                   {post.data.description}
                 </p>
                 <div class="flex flex-wrap gap-2">
                   {post.data.tags.slice(0, 3).map((tag) => (
-                    <span class="text-xs text-stone-500 dark:text-stone-400 bg-stone-100/80 dark:bg-stone-800/80 px-2.5 py-1 rounded-md font-light">
+                    <span class="text-xs text-secondary bg-muted px-2.5 py-1 rounded-md font-light">
                       #{tag}
                     </span>
                   ))}

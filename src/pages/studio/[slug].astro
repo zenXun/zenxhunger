@@ -45,18 +45,16 @@ const statusColors = {
   translatedUrls={translatedUrls}
 >
   <article class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
-    <nav class="mb-12 text-sm text-stone-600 font-light">
-      <a href="/" class="hover:text-emerald-700 transition-all duration-200"
+    <nav class="mb-12 text-sm text-secondary font-light">
+      <a href="/" class="hover:text-accent transition-all duration-200"
         >{t["nav.home"]}</a
       >
-      <span class="mx-2 text-stone-400">/</span>
-      <a
-        href="/studio"
-        class="hover:text-emerald-700 transition-all duration-200"
+      <span class="mx-2 text-secondary/40">/</span>
+      <a href="/studio" class="hover:text-accent transition-all duration-200"
         >{t["nav.studio"]}</a
       >
-      <span class="mx-2 text-stone-400">/</span>
-      <span class="text-stone-900 line-clamp-1">{post.data.title}</span>
+      <span class="mx-2 text-secondary/40">/</span>
+      <span class="text-primary line-clamp-1">{post.data.title}</span>
     </nav>
     <header class="mb-16 space-y-6">
       <div class="flex items-center gap-3">
@@ -66,7 +64,7 @@ font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
         >
           {post.data.status}
         </span>
-        <time class="text-sm text-stone-500 font-light">
+        <time class="text-sm text-secondary font-light">
           {
             post.data.pubDate.toLocaleDateString(currentLocale, {
               year: "numeric",
@@ -78,17 +76,17 @@ font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
       </div>
       <h1
         class="font-serif text-4xl
-sm:text-5xl lg:text-6xl font-semibold text-stone-900 leading-tight
+sm:text-5xl lg:text-6xl font-semibold text-primary leading-tight
 tracking-tight"
       >
         {post.data.title}
       </h1>
-      <p class="text-xl text-stone-600
+      <p class="text-xl text-secondary
 leading-relaxed font-light">
         {post.data.description}
       </p>
       <div class="w-16 h-px
-bg-gradient-to-r from-emerald-700/30 to-transparent">
+bg-gradient-to-r from-accent/30 to-transparent">
       </div>
       <div class="flex
 flex-wrap gap-2.5">
@@ -96,7 +94,7 @@ flex-wrap gap-2.5">
           post.data.tags.map((tag) => (
             <span
               class="text-sm
-text-stone-600 bg-stone-100/80 px-3 py-1.5 rounded-md font-light"
+text-secondary bg-muted px-3 py-1.5 rounded-md font-light"
             >
               {" "}
               #{tag}
@@ -106,14 +104,14 @@ text-stone-600 bg-stone-100/80 px-3 py-1.5 rounded-md font-light"
       </div>
     </header>
     <div
-      class="prose prose-stone prose-lg dark:prose-invert mx-auto tracking-wide leading-relaxed prose-a:text-emerald-700 dark:prose-a:text-emerald-400 hover:prose-a:text-emerald-600 dark:hover:prose-a:text-emerald-300 prose-a:no-underline hover:prose-a:underline prose-p:mb-6"
+      class="prose prose-stone prose-lg dark:prose-invert mx-auto tracking-wide leading-relaxed prose-a:text-accent hover:prose-a:text-accent-hover prose-a:no-underline hover:prose-a:underline prose-p:mb-6"
     >
       <Content />
     </div>
-    <footer class="mt-20 pt-10 border-t border-stone-200/60">
+    <footer class="mt-20 pt-10 border-t border-border-subtle/60">
       <a
         href="/studio"
-        class="inline-flex items-center gap-2 text-sm font-medium text-stone-700 hover:text-emerald-700 transition-all duration-200 group"
+        class="inline-flex items-center gap-2 text-sm font-medium text-secondary hover:text-accent transition-all duration-200 group"
       >
         <svg
           class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform duration-200"
