@@ -1,0 +1,76 @@
+---
+
+---
+
+<section
+    class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-12 mt-12 border-t border-border-subtle/60"
+>
+    <div class="giscus"></div>
+
+    <script is:inline>
+        // Helper to get the current Giscus theme based on site mode
+        function getGiscusTheme() {
+            const isDark = document.documentElement.classList.contains("dark");
+            // Use 'transparent_dark' for dark mode to blend with stone-950/900
+            // Use 'light' for light mode (stone-50 background)
+            return isDark ? "transparent_dark" : "light";
+        }
+
+        // Function to update Giscus theme
+        function setGiscusTheme() {
+            const theme = getGiscusTheme();
+            const iframe = document.querySelector("iframe.giscus-frame");
+            if (!iframe) return;
+
+            iframe.contentWindow.postMessage(
+                { giscus: { setConfig: { theme: theme } } },
+                "https://giscus.app",
+            );
+        }
+
+        // Initial setup - modifying the script attribute before it loads if possible,
+        // or relying on post-load update.
+        // Since we can't easily modify the script tag attributes dynamically before execution in Astro without duplication,
+        // we'll set a default in the script tag and update it immediately if needed.
+
+        // Observer for theme changes
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (
+                    mutation.type === "attributes" &&
+                    mutation.attributeName === "class"
+                ) {
+                    setGiscusTheme();
+                }
+            });
+        });
+
+        observer.observe(document.documentElement, { attributes: true });
+
+        // Handle initial load message from Giscus to set correct theme immediately
+        window.addEventListener("message", (event) => {
+            if (event.origin !== "https://giscus.app") return;
+            if (!(typeof event.data === "object" && event.data.giscus)) return;
+
+            // When giscus loads, ensure theme is correct
+            setGiscusTheme();
+        });
+    </script>
+
+    <script
+        src="https://giscus.app/client.js"
+        data-repo="zenXun/zenxhunger"
+        data-repo-id="R_kgDOQz4AtA"
+        data-category="General"
+        data-category-id="DIC_kwDOQz4AtM4C05HD"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async></script>
+</section>

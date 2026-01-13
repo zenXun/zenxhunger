@@ -51,6 +51,12 @@ const {
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
     <title>{title}</title>
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Zen X Hunger"
+      href={new URL("rss.xml", Astro.site)}
+    />
 
     <!-- FOUC Prevention: Set theme before page renders -->
     <script is:inline>
@@ -232,6 +238,15 @@ const {
           </p>
           <p class="text-xs text-stone-400 dark:text-stone-500">
             Thinking, exploring, tasting.
+          </p>
+          <p>
+            <a
+              href="/rss.xml"
+              class="text-xs text-stone-400 dark:text-stone-500 hover:text-accent transition-colors"
+              aria-label="RSS Feed"
+            >
+              RSS
+            </a>
           </p>
         </div>
       </div>

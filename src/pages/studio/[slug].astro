@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection, getEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Comments from "@/components/Comments.astro";
 import { getTranslations } from "@/i18n/translations";
 export async function getStaticPaths() {
   const posts = await getCollection("studio", ({ data }) => {
@@ -128,5 +129,6 @@ text-secondary bg-muted px-3 py-1.5 rounded-md font-light"
         {t["backToStudio"]}
       </a>
     </footer>
+    <Comments />
   </article>
 </BaseLayout>
