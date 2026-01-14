@@ -2,7 +2,7 @@
 title: "The Leverage Swap: Manager to IC in 2026"
 description: "Will AI become a purer lever?"
 pubDate: 2026-01-12
-status: "Sapling"
+status: "River"
 locale: "en"
 tags: ["Career", "Management", "AI", "Thinking"]
 draft: false

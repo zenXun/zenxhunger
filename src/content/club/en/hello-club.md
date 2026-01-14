@@ -2,7 +2,7 @@
 title: "First Club Entry"
 description: "Welcome to the Club section. Here I will share my hobbies and recreational activities."
 pubDate: 2026-01-08
-status: "Seed"
+status: "Flop"
 locale: "en"
 tags: ["hobby", "intro"]
 draft: false

@@ -2,7 +2,7 @@
 title: "First Library Entry"
 description: "Welcome to the Library section. Here I will share my reading notes and book reviews."
 pubDate: 2026-01-08
-status: "Seed"
+status: "Flop"
 locale: "en"
 tags: ["reading", "intro"]
 draft: false

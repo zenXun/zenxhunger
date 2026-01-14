@@ -3,7 +3,8 @@ import { type CollectionEntry, getCollection, getEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Comments from "@/components/Comments.astro";
 import { getTranslations } from "@/i18n/translations";
-export async function getStaticPaths() {
+
+import { statusColors } from "@/utils/status";export async function getStaticPaths() {
   const posts = await getCollection("library", ({ data }) => {
     return data.locale === "en" && (import.meta.env.PROD ? !data.draft : true);
   });
@@ -30,13 +31,7 @@ const translatedUrls = {
   zh: isOtherVisible ? `/library/${baseSlug}` : `/library`,
 };
 const { Content } = await post.render();
-const statusColors = {
-  Seed: "bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 border border-amber-200/50 dark:border-amber-800/50",
-  Sapling:
-    "bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-800/50",
-  Evergreen:
-    "bg-sky-50 dark:bg-sky-950/30 text-sky-700 dark:text-sky-400 border border-sky-200/50 dark:border-sky-800/50",
-};
+
 ---
 
 <BaseLayout
