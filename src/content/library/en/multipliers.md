@@ -3,7 +3,7 @@ title: "Multipliers Reading Notes"
 book_title: "Multipliers"
 alias: ["倍增者"]
 pubDate: 2026-01-13
-status: "Flop"
+status: "起"
 locale: "en"
 tags: ["management", "leadership", "notes"]
 draft: false

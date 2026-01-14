@@ -6,7 +6,7 @@ const baseSchema = z.object({
   pubDate: z.coerce.date(),
   description: z.string(),
   tags: z.array(z.string()),
-  status: z.enum(['Flop', 'Turn', 'River', '起', '转', '合']).default('Flop'),
+  status: z.enum(['Flop', 'Turn', 'River', '起', '承', '转', '合']).default('Flop'),
   locale: z.enum(['en', 'zh']).optional().default('en'),
   slug: z.string().optional(), // Custom slug for i18n mapping
   draft: z.boolean().default(true),

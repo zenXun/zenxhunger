@@ -3,7 +3,7 @@ title: "High Output Management Reading Notes"
 book_title: "High Output Management"
 alias: ["格鲁夫给经理人的第一课"]
 pubDate: 2026-01-13
-status: "Flop"
+status: "起"
 locale: "en"
 tags: ["management", "notes"]
 draft: false
