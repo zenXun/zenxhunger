@@ -1,0 +1,25 @@
+--- Loading Library Mappings ---
+Entry Loaded: high-output-management.md
+  Slug: en/high-output-management
+  PathParts: ["en","high-output-management"]
+  EntryLocale: en
+  SlugBaseName: high-output-management
+Entry Loaded: high-output-management.md
+  Slug: zh/high-output-management
+  PathParts: ["zh","high-output-management"]
+  EntryLocale: zh
+  SlugBaseName: high-output-management
+  Link Update Check: high output management
+    Slug: high-output-management, Locale: en, Method: exact
+    Proposed URL: /en/library/high-output-management
+    Old URL: /en/library/high-output-management
+
+Processing Article: /Users/zenwu/Documents/website/zenxhunger/src/content/cafe/en/manager-to-ic.md
+  Detected Locale: en
+
+Processing Article: /Users/zenwu/Documents/website/zenxhunger/src/content/cafe/zh/manager-to-ic.md
+  Detected Locale: zh
+  Link Update Check: high output management
+    Slug: high-output-management, Locale: zh, Method: exact
+    Proposed URL: /library/high-output-management
+    Old URL: https://www.goodreads.com/book/show/324750.High_Output_Management

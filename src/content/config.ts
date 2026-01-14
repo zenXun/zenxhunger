@@ -11,6 +11,7 @@ const baseSchema = z.object({
   slug: z.string().optional(), // Custom slug for i18n mapping
   draft: z.boolean().default(true),
   book_title: z.string().optional(),
+  alias: z.array(z.string()).optional(),
   rating: z.number().min(1).max(5).optional(),
 });
 

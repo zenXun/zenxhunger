@@ -14,6 +14,10 @@
     "@tailwindcss/vite": "^4.1.18",
     "@vercel/analytics": "^1.6.1",
     "astro": "^5.16.6",
-    "tailwindcss": "^4.1.18"
+    "gray-matter": "^4.0.3",
+    "remark": "^15.0.1",
+    "tailwindcss": "^4.1.18",
+    "unist-util-visit": "^5.0.0",
+    "unist-util-visit-parents": "^6.0.2"
   }
 }

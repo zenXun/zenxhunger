@@ -16,7 +16,7 @@ The core of all these hypotheses points to one keyword: Leverage.
 
 Observation & Hypothesis: Is the Old Math Still Valid?
 
-In the classic context of management, influence is almost synonymous with the mobilization of others. In "High Output Management", Andy Grove provides a rigorous formula: A manager’s output = the output of the organization under his supervision or influence. This is a game of "scale effect." To achieve this, we must go through what "The Leadership Pipeline" calls a "shift in values": letting go of the obsession with personal output and instead achieving exponential growth through delegation and coaching, as described in "Multipliers".
+In the classic context of management, influence is almost synonymous with the mobilization of others. In *High Output Management*, Andy Grove provides a rigorous formula: A manager’s output = the output of the organization under his supervision or influence. This is a game of "scale effect." To achieve this, we must go through what *The Leadership Pipeline* calls a "shift in values": letting go of the obsession with personal output and instead achieving exponential growth through delegation and coaching, as described in *Multipliers*.
 
 However, in my daily observations, this human leverage is not a pure physical addition; it is mixed with extremely high "Communication Entropy."
 
@@ -26,13 +26,13 @@ Traditional management theory suggests solving this through feedback, coaching, 
 
 Will AI Become a Purer Form of Leverage?
 
-Based on the iterative observation of AI capabilities and following the methodology of Syntopical Reading proposed by Mortimer Adler in "How to Read a Book"—which is the core methodology of my writing series—I am preparing to test the following three key hypotheses during my transition:
+Based on the iterative observation of AI capabilities and following the methodology of Syntopical Reading proposed by Mortimer Adler in *How to Read a Book*—which is the core methodology of my writing series—I am preparing to test the following three key hypotheses during my transition:
 
 1. From "Multiplying Others" to "Multiplying Self": Seeking "Escape Velocity"
 
 In physics, Escape Velocity is a fascinating concept: only by moving fast enough can one break free from Earth's gravitational pull into deep space. I have always believed that a top-tier team needs this momentum, fueled by both "speed" and "quality." Yet, in traditional management, members who communicate poorly or provide slow feedback often act like giant parachutes attached to the back of the spacecraft, drastically slowing down the overall propulsion.
 
-While "Multipliers" encourages managers to tap into team potential through questioning, in my hypothesis, AI is a purer, emotionless "multiplier" with zero friction.
+While *Multipliers* encourages managers to tap into team potential through questioning, in my hypothesis, AI is a purer, emotionless "multiplier" with zero friction.
 
 Hypothesis: Compared to managing a team with varying performance and high communication overhead, AI orchestration can increase information transfer efficiency by several orders of magnitude. This "zero-resistance" communication allows personal output to accelerate exponentially, making it possible for an individual contribution to reach the "escape velocity" necessary to break free from the gravity of mediocrity.
 
@@ -48,7 +48,7 @@ Hypothesis: AI acts as a high-efficiency financial system, significantly lowerin
 
 Traditional logic assumes managers see the big picture (Business & Program) while ICs just keep their heads down. But managers are often trapped by current resource boundaries and schedules; their logic is usually one of "linear extension"—adding a bit more resource to the existing track. An AI-augmented IC, freed from execution overhead, actually gains the "luxury time" to observe the whole.
 
-Hypothesis: Because ICs do not have to sink into endless alignment meetings, they can use AI to rapidly scan cross-team codebases and untangle complex business chains. This combination of depth and breadth allows them to propose "non-linear" innovations. Instead of patching an old system, they can identify structural flaws and propose fundamental reconstructions. As "The Staff Engineer’s Path" suggests, the true value of a Staff Engineer lies in solving systemic deadlocks with an elegant, cross-team technical solution that a manager couldn't resolve even with ten additional hires.
+Hypothesis: Because ICs do not have to sink into endless alignment meetings, they can use AI to rapidly scan cross-team codebases and untangle complex business chains. This combination of depth and breadth allows them to propose "non-linear" innovations. Instead of patching an old system, they can identify structural flaws and propose fundamental reconstructions. As *The Staff Engineer’s Path* suggests, the true value of a Staff Engineer lies in solving systemic deadlocks with an elegant, cross-team technical solution that a manager couldn't resolve even with ten additional hires.
 
 Mindset Preparation
 
@@ -58,7 +58,7 @@ De-mystifying "Power": Can I accept losing administrative "decision-making power
 
 Withdrawal from "Hyper-connectivity": Am I ready to abandon the "fragmented busyness" of management and re-establish the high-endurance habits required for "Deep Work"?
 
-Reconstructing the "Feedback Loop": Julie Zhuo mentions in "The Making of a Manager" that managerial feedback loops are extremely delayed. Returning to IC means embracing "short and certain" feedback. Am I ready to re-accustom myself to the immediate sense of achievement (or failure) that comes from direct delivery?
+Reconstructing the "Feedback Loop": Julie Zhuo mentions in *The Making of a Manager* that managerial feedback loops are extremely delayed. Returning to IC means embracing "short and certain" feedback. Am I ready to re-accustom myself to the immediate sense of achievement (or failure) that comes from direct delivery?
 
 Currently, I am increasing the weight of AI tools in my daily workflow. From my experience with AI coding agents, I can confidently view them as highly capable "Junior Engineers"—given a clear goal and task, they perform exceptionally well. However, they currently lack the proactivity of a "Mid-level Engineer." Once the task scope expands, there is a risk of breaking the codebase. The time lost in fixing a mix of correct and incorrect code can often outweigh the gains. I suspect this is due to low "integration" with my current tools, and I eagerly await the day AI can reliably perform the functions of a Mid-level Engineer.
 
