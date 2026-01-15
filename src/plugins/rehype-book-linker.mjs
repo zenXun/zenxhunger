@@ -43,8 +43,8 @@ function loadLibraryMappings(root) {
                     }
 
                     // Filtering Logic: Skip drafts in Production
-                    // If draft is true, and we are in PROD, skip this file from the mapping.
-                    if (import.meta.env && import.meta.env.PROD && data.draft === true) {
+                    // Use process.env.NODE_ENV for generic node compatibility during build time
+                    if (process.env.NODE_ENV === 'production' && data.draft === true) {
                         continue;
                     }
 
