@@ -4,7 +4,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Comments from "@/components/Comments.astro";
 import { getTranslations } from "@/i18n/translations";
 
-import { statusColors } from "@/utils/status";export async function getStaticPaths() {
+import { statusColors } from "@/utils/status";
+export async function getStaticPaths() {
   const posts = await getCollection("library", ({ data }) => {
     return data.locale === "en" && (import.meta.env.PROD ? !data.draft : true);
   });
@@ -31,7 +32,6 @@ const translatedUrls = {
   zh: isOtherVisible ? `/library/${baseSlug}` : `/library`,
 };
 const { Content } = await post.render();
-
 ---
 
 <BaseLayout
@@ -93,7 +93,7 @@ mx-auto px-6 sm:px-8 lg:px-12 py-20">
       </div>
     </header>
     <div
-      class="prose prose-stone prose-lg dark:prose-invert mx-auto prose-headings:font-serif leading-relaxed prose-a:text-emerald-700 dark:prose-a:text-emerald-400 hover:prose-a:text-emerald-600 dark:hover:prose-a:text-emerald-300 prose-a:no-underline hover:prose-a:underline prose-p:mb-6"
+      class="prose mx-auto prose-reading prose-a:text-emerald-700 dark:prose-a:text-emerald-400 hover:prose-a:text-emerald-600 dark:hover:prose-a:text-emerald-300 prose-a:no-underline hover:prose-a:underline"
     >
       <Content />
     </div>

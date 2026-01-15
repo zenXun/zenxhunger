@@ -4,7 +4,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Comments from "@/components/Comments.astro";
 import { getTranslations } from "@/i18n/translations";
 
-import { statusColors } from "@/utils/status";export async function getStaticPaths() {
+import { statusColors } from "@/utils/status";
+export async function getStaticPaths() {
   const posts = await getCollection("cafe", ({ data }) => {
     return data.locale === "en" && (import.meta.env.PROD ? !data.draft : true);
   });
@@ -32,7 +33,6 @@ const translatedUrls = {
 };
 
 const { Content } = await post.render();
-
 ---
 
 <BaseLayout
@@ -101,7 +101,7 @@ text-secondary bg-muted px-3 py-1.5 rounded-md font-light"
       </div>
     </header>
     <div
-      class="prose prose-stone prose-lg dark:prose-invert mx-auto prose-headings:font-serif leading-relaxed prose-a:text-accent hover:prose-a:text-accent-hover prose-a:no-underline hover:prose-a:underline prose-p:mb-6"
+      class="prose mx-auto prose-reading prose-a:text-accent hover:prose-a:text-accent-hover prose-a:no-underline hover:prose-a:underline"
     >
       <Content />
     </div>

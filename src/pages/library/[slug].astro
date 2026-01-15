@@ -4,7 +4,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Comments from "@/components/Comments.astro";
 import { getTranslations } from "@/i18n/translations";
 
-import { statusColors } from "@/utils/status";export async function getStaticPaths() {
+import { statusColors } from "@/utils/status";
+export async function getStaticPaths() {
   const posts = await getCollection("library", ({ data }) => {
     return data.locale === "zh" && (import.meta.env.PROD ? !data.draft : true);
   });
@@ -32,7 +33,6 @@ const translatedUrls = {
 };
 
 const { Content } = await post.render();
-
 ---
 
 <BaseLayout
@@ -104,7 +104,7 @@ text-stone-600 bg-stone-100/80 px-3 py-1.5 rounded-md font-light"
       </div>
     </header>
     <div
-      class="prose prose-stone prose-lg dark:prose-invert mx-auto prose-headings:font-serif tracking-wide leading-loose text-justify prose-a:text-emerald-700 dark:prose-a:text-emerald-400 hover:prose-a:text-emerald-600 dark:hover:prose-a:text-emerald-300 prose-a:no-underline hover:prose-a:underline prose-p:mb-6"
+      class="prose mx-auto prose-reading prose-a:text-emerald-700 dark:prose-a:text-emerald-400 hover:prose-a:text-emerald-600 dark:hover:prose-a:text-emerald-300 prose-a:no-underline hover:prose-a:underline"
     >
       <Content />
     </div>
