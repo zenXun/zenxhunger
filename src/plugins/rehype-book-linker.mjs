@@ -8,8 +8,6 @@ import { bookLinkerConfig } from '../config/book-linker.mjs';
 let libraryMapping = null;
 
 function loadLibraryMappings(root) {
-    if (libraryMapping) return libraryMapping;
-
     libraryMapping = new Map();
     const libraryDir = path.join(root, 'src/content/library');
 
@@ -108,7 +106,10 @@ export default function rehypeBookLinker() {
             let bestMatch = null;
 
             for (const key of mapping.keys()) {
-                const idx = content.toLowerCase().indexOf(key);
+                const normalizedKey = key.replace(/[’‘]/g, "'");
+                const normalizedContent = content.toLowerCase().replace(/[’‘]/g, "'");
+
+                const idx = normalizedContent.indexOf(normalizedKey);
                 if (idx !== -1) {
                     if (!bestMatch || key.length > bestMatch.key.length || (key.length === bestMatch.key.length && idx < bestMatch.index)) {
 

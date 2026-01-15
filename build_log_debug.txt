@@ -1,0 +1,92 @@
+
+> zenxhunger@0.0.1 build
+> astro build
+
+DEBUG: ASTRO CONFIG RELOADED 2026-01-15T02:47:56.146Z
+
+Auto-generating collections for folders in "src/content/" that are not defined as collections.
+This is deprecated, so you should define these collections yourself in "src/content.config.ts".
+The following collections have been auto-generated: drafts
+
+18:47:56 [content] Syncing content
+18:47:56 [content] Synced content
+18:47:56 [types] Generated 154ms
+18:47:56 [build] output: "static"
+18:47:56 [build] mode: "static"
+18:47:56 [build] directory: /Users/zenwu/Documents/website/zenxhunger/dist/
+18:47:56 [build] Collecting build info...
+18:47:56 [build] ✓ Completed in 163ms.
+18:47:56 [build] Building static entrypoints...
+18:47:56 [WARN] [vite] "matchHostname", "matchPathname", "matchPort" and "matchProtocol" are imported from external module "@astrojs/internal-helpers/remote" but never used in "node_modules/astro/dist/assets/utils/remotePattern.js".
+18:47:57 [vite] ✓ built in 660ms
+18:47:57 [build] ✓ Completed in 678ms.
+
+ building client (vite) 
+18:47:57 [vite] transforming...
+18:47:57 [vite] ✓ 3 modules transformed.
+18:47:57 [vite] rendering chunks...
+18:47:57 [vite] ✓ built in 11ms
+
+ generating static routes 
+18:47:57 ▶ src/pages/ai-usage.astro
+18:47:57   └─ /ai-usage/index.html (+5ms) 
+18:47:57 ▶ src/pages/cafe/[slug].astro
+18:47:57   ├─ /cafe/hello-cafe/index.html (+3ms) 
+18:47:57   └─ /cafe/manager-to-ic/index.html (+1ms) 
+18:47:57 ▶ src/pages/cafe/index.astro
+18:47:57   └─ /cafe/index.html (+1ms) 
+18:47:57 ▶ src/pages/club/[slug].astro
+18:47:57   └─ /club/hello-club/index.html (+1ms) 
+18:47:57 ▶ src/pages/club/index.astro
+18:47:57   └─ /club/index.html (+1ms) 
+18:47:57 ▶ src/pages/en/ai-usage.astro
+18:47:57   └─ /en/ai-usage/index.html (+1ms) 
+18:47:57 ▶ src/pages/en/cafe/[slug].astro
+18:47:57   ├─ /en/cafe/hello-cafe/index.html (+1ms) 
+18:47:57   └─ /en/cafe/manager-to-ic/index.html (+1ms) 
+18:47:57 ▶ src/pages/en/cafe/index.astro
+18:47:57   └─ /en/cafe/index.html (+1ms) 
+18:47:57 ▶ src/pages/en/club/[slug].astro
+18:47:57   └─ /en/club/hello-club/index.html (+1ms) 
+18:47:57 ▶ src/pages/en/club/index.astro
+18:47:57   └─ /en/club/index.html (+1ms) 
+18:47:57 ▶ src/pages/en/library/[slug].astro
+18:47:57   ├─ /en/library/high-output-management/index.html (+1ms) 
+18:47:57   ├─ /en/library/hello-library/index.html (+1ms) 
+18:47:57   ├─ /en/library/multipliers/index.html (+1ms) 
+18:47:57   ├─ /en/library/how-to-read-a-book/index.html (+1ms) 
+18:47:57   ├─ /en/library/deep-work/index.html (+1ms) 
+18:47:57   ├─ /en/library/the-making-of-a-manager/index.html (+1ms) 
+18:47:57   ├─ /en/library/the-staff-engineers-path/index.html (+1ms) 
+18:47:57   └─ /en/library/the-leadership-pipeline/index.html (+1ms) 
+18:47:57 ▶ src/pages/en/library/index.astro
+18:47:57   └─ /en/library/index.html (+1ms) 
+18:47:57 ▶ src/pages/en/studio/[slug].astro
+18:47:57   └─ /en/studio/hello-studio/index.html (+1ms) 
+18:47:57 ▶ src/pages/en/studio/index.astro
+18:47:57   └─ /en/studio/index.html (+1ms) 
+18:47:57 ▶ src/pages/en/index.astro
+18:47:57   └─ /en/index.html (+2ms) 
+18:47:57 ▶ src/pages/library/[slug].astro
+18:47:57   ├─ /library/hello-library/index.html (+1ms) 
+18:47:57   ├─ /library/deep-work/index.html (+1ms) 
+18:47:57   ├─ /library/high-output-management/index.html (+1ms) 
+18:47:57   ├─ /library/how-to-read-a-book/index.html (+1ms) 
+18:47:57   ├─ /library/multipliers/index.html (+1ms) 
+18:47:57   ├─ /library/the-leadership-pipeline/index.html (+1ms) 
+18:47:57   ├─ /library/the-making-of-a-manager/index.html (+1ms) 
+18:47:57   └─ /library/the-staff-engineers-path/index.html (+1ms) 
+18:47:57 ▶ src/pages/library/index.astro
+18:47:57   └─ /library/index.html (+1ms) 
+18:47:57 λ src/pages/rss.xml.js
+18:47:57   └─ /rss.xml (+4ms) 
+18:47:57 ▶ src/pages/studio/[slug].astro
+18:47:57   └─ /studio/hello-studio/index.html (+1ms) 
+18:47:57 ▶ src/pages/studio/index.astro
+18:47:57   └─ /studio/index.html (+1ms) 
+18:47:57 ▶ src/pages/index.astro
+18:47:57   └─ /index.html (+2ms) 
+18:47:57 ✓ Completed in 78ms.
+
+18:47:57 [build] 36 page(s) built in 946ms
+18:47:57 [build] Complete!

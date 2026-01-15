@@ -1,10 +1,9 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-
 import rehypeBookLinker from './src/plugins/rehype-book-linker.mjs';
 
-console.log("DEBUG: ASTRO CONFIG LOADED");
+console.log("DEBUG: ASTRO CONFIG RELOADED " + new Date().toISOString());
 
 // https://astro.build/config
 export default defineConfig({

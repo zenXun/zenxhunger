@@ -48,7 +48,7 @@ However, in my vision for the 2026 IC transition, I will gain the freedom of "se
 
 Traditional logic assumes managers see the big picture (Business & Program) while ICs just keep their heads down. But managers are often trapped by current resource boundaries and schedules; their logic is usually one of "linear extension"—adding a bit more resource to the existing track. An AI-augmented IC, freed from execution overhead, actually gains the "luxury time" to observe the whole.
 
-- **Hypothesis**: Because ICs do not have to sink into endless alignment meetings, they can use AI to rapidly scan cross-team codebases and untangle complex business chains. This combination of depth and breadth allows them to propose "non-linear" innovations. Instead of patching an old system, they can identify structural flaws and propose fundamental reconstructions. As *The Staff Engineer’s Path* suggests, the true value of a Staff Engineer lies in solving systemic deadlocks with an elegant, cross-team technical solution that a manager couldn't resolve even with ten additional hires.
+- **Hypothesis**: Because ICs do not have to sink into endless alignment meetings, they can use AI to rapidly scan cross-team codebases and untangle complex business chains. This combination of depth and breadth allows them to propose "non-linear" innovations. Instead of patching an old system, they can identify structural flaws and propose fundamental reconstructions. As *The Staff Engineer's Path* suggests, the true value of a Staff Engineer lies in solving systemic deadlocks with an elegant, cross-team technical solution that a manager couldn't resolve even with ten additional hires.
 
 ## Mindset Preparation
 

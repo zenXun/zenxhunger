@@ -10,7 +10,8 @@ export const bookLinkerConfig = {
      */
     textDelimiters: [
         { left: '《', right: '》' },
-        { left: '「', right: '」' }
+        { left: '「', right: '」' },
+        { left: '(', right: ')' }
         // Uncomment the line below to support double quotes (e.g. "High Output Management")
         // { left: '"', right: '"' } 
     ],
