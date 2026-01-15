@@ -18,7 +18,7 @@ const baseSchema = z.object({
 // Studio collection - Learning notes, AI, Tech explorations (was AI)
 const studioCollection = defineCollection({
   type: 'content',
-  schema: baseSchema,
+  schema: baseSchema, // Schema definition for Studio collection
 });
 
 // Library collection - books, reflections, taste
