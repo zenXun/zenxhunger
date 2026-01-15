@@ -7,11 +7,12 @@ import { statusColors } from "@/utils/status";
 const { currentLocale } = Astro;
 const t = getTranslations(currentLocale as "en" | "zh");
 
-const filterPost = (post) =>
+const filterPost = (post: any) =>
   post.data.locale === currentLocale &&
   (import.meta.env.PROD ? !post.data.draft : true);
 
-const sortPost = (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+const sortPost = (a: any, b: any) =>
+  b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
 
 const rawStudio = (await getCollection("studio")).filter(filterPost);
 const rawLibrary = (await getCollection("library")).filter(filterPost);
@@ -141,30 +142,35 @@ const clubPosts = rawClub.sort(sortPost).slice(0, 3);
     class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 opacity-80 hover:opacity-100 transition-opacity duration-500"
   >
     <div class="mb-20">
-      <div class="flex items-center justify-between mb-8">
-        <h3
-          class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
-        >
-          {t["nav.studio"]}
-        </h3>
-        <a
-          href="/en/studio"
-          class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
-        >
-          {t["viewAll"]}
-          <svg
-            class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+      <div class="flex flex-col gap-1 mb-8">
+        <div class="flex items-center justify-between">
+          <h3
+            class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
+            {t["nav.studio"]}
+          </h3>
+          <a
+            href="/en/studio"
+            class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
+          >
+            {t["viewAll"]}
+            <svg
+              class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+        <p class="text-stone-500 dark:text-stone-400 font-light">
+          {t["studio.description"]}
+        </p>
       </div>
       {
         studioPosts.length > 0 ? (
@@ -211,30 +217,35 @@ const clubPosts = rawClub.sort(sortPost).slice(0, 3);
       }
     </div>
     <div class="mb-20">
-      <div class="flex items-center justify-between mb-8">
-        <h3
-          class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
-        >
-          {t["nav.library"]}
-        </h3>
-        <a
-          href="/en/library"
-          class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
-        >
-          {t["viewAll"]}
-          <svg
-            class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+      <div class="flex flex-col gap-1 mb-8">
+        <div class="flex items-center justify-between">
+          <h3
+            class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
+            {t["nav.library"]}
+          </h3>
+          <a
+            href="/en/library"
+            class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
+          >
+            {t["viewAll"]}
+            <svg
+              class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+        <p class="text-stone-500 dark:text-stone-400 font-light">
+          {t["library.description"]}
+        </p>
       </div>
       {
         libraryPosts.length > 0 ? (
@@ -281,30 +292,35 @@ const clubPosts = rawClub.sort(sortPost).slice(0, 3);
       }
     </div>
     <div class="mb-20">
-      <div class="flex items-center justify-between mb-8">
-        <h3
-          class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
-        >
-          {t["nav.cafe"]}
-        </h3>
-        <a
-          href="/en/cafe"
-          class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
-        >
-          {t["viewAll"]}
-          <svg
-            class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+      <div class="flex flex-col gap-1 mb-8">
+        <div class="flex items-center justify-between">
+          <h3
+            class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
+            {t["nav.cafe"]}
+          </h3>
+          <a
+            href="/en/cafe"
+            class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
+          >
+            {t["viewAll"]}
+            <svg
+              class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+        <p class="text-stone-500 dark:text-stone-400 font-light">
+          {t["cafe.description"]}
+        </p>
       </div>
       {
         cafePosts.length > 0 ? (
@@ -351,30 +367,35 @@ const clubPosts = rawClub.sort(sortPost).slice(0, 3);
       }
     </div>
     <div class="mb-20">
-      <div class="flex items-center justify-between mb-8">
-        <h3
-          class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
-        >
-          {t["nav.club"]}
-        </h3>
-        <a
-          href="/en/club"
-          class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
-        >
-          {t["viewAll"]}
-          <svg
-            class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+      <div class="flex flex-col gap-1 mb-8">
+        <div class="flex items-center justify-between">
+          <h3
+            class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
+            {t["nav.club"]}
+          </h3>
+          <a
+            href="/en/club"
+            class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
+          >
+            {t["viewAll"]}
+            <svg
+              class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+        <p class="text-stone-500 dark:text-stone-400 font-light">
+          {t["club.description"]}
+        </p>
       </div>
       {
         clubPosts.length > 0 ? (
