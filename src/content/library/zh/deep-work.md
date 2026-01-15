@@ -1,5 +1,5 @@
 ---
-title: "《深度工作》读书笔记"
+title: "「深度工作」读书笔记"
 book_title: "Deep Work"
 alias: ["深度工作"]
 pubDate: 2026-01-13
