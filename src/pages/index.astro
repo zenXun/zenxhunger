@@ -7,41 +7,26 @@ import { statusColors } from "@/utils/status";
 const { currentLocale } = Astro;
 const t = getTranslations(currentLocale as "en" | "zh");
 
-const studioPosts = (await getCollection("studio"))
-  .filter(
-    (post) =>
-      post.data.locale === currentLocale &&
-      (import.meta.env.PROD ? !post.data.draft : true),
-  )
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+const filterPost = (post) =>
+  post.data.locale === currentLocale &&
+  (import.meta.env.PROD ? !post.data.draft : true);
 
-const libraryPosts = (await getCollection("library"))
-  .filter(
-    (post) =>
-      post.data.locale === currentLocale &&
-      (import.meta.env.PROD ? !post.data.draft : true),
-  )
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+const sortPost = (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
 
-const cafePosts = (await getCollection("cafe"))
-  .filter(
-    (post) =>
-      post.data.locale === currentLocale &&
-      (import.meta.env.PROD ? !post.data.draft : true),
-  )
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+const rawStudio = (await getCollection("studio")).filter(filterPost);
+const rawLibrary = (await getCollection("library")).filter(filterPost);
+const rawCafe = (await getCollection("cafe")).filter(filterPost);
+const rawClub = (await getCollection("club")).filter(filterPost);
 
-const clubPosts = (await getCollection("club"))
-  .filter(
-    (post) =>
-      post.data.locale === currentLocale &&
-      (import.meta.env.PROD ? !post.data.draft : true),
-  )
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+const allPosts = [...rawStudio, ...rawLibrary, ...rawCafe, ...rawClub].sort(
+  sortPost,
+);
+const latestPosts = allPosts.slice(0, 6);
+
+const studioPosts = rawStudio.sort(sortPost).slice(0, 3);
+const libraryPosts = rawLibrary.sort(sortPost).slice(0, 3);
+const cafePosts = rawCafe.sort(sortPost).slice(0, 3);
+const clubPosts = rawClub.sort(sortPost).slice(0, 3);
 ---
 
 <BaseLayout>
@@ -80,12 +65,77 @@ const clubPosts = (await getCollection("club"))
       </div>
     </div>
   </section>
-  <section class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
+
+  <!-- Latest Stream Section -->
+  <section
+    class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 border-b border-border-subtle/40"
+  >
     <h2
-      class="text-3xl sm:text-4xl font-semibold text-primary mb-16 tracking-tight"
+      class="text-3xl sm:text-4xl font-semibold text-primary mb-12 tracking-tight"
     >
-      最新文章
+      {t["home.latest"]}
     </h2>
+
+    {
+      latestPosts.length > 0 ? (
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {latestPosts.map((post) => (
+            <article class="group bg-surface rounded-xl border border-border-subtle p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-border-subtle hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+              {/* Collection Badge */}
+              <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
+                <span class="text-6xl font-serif font-black uppercase text-secondary">
+                  {post.collection[0]}
+                </span>
+              </div>
+
+              <div class="flex items-center gap-2.5 mb-4 relative z-10">
+                <span
+                  class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
+                >
+                  {post.data.status}
+                </span>
+                <span class="text-xs font-medium px-2 py-0.5 rounded border border-border-subtle text-secondary uppercase tracking-wider">
+                  {t[`nav.${post.collection}`]}
+                </span>
+                <time class="text-xs text-secondary font-light ml-auto">
+                  {post.data.pubDate.toLocaleDateString(currentLocale, {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </time>
+              </div>
+              <h4 class="text-xl font-semibold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-200 relative z-10">
+                <a href={`/${post.collection}/${post.slug.split("/").pop()}`}>
+                  {post.data.title}
+                </a>
+              </h4>
+              <p class="text-sm text-secondary leading-relaxed mb-5 line-clamp-3 font-light relative z-10">
+                {post.data.description}
+              </p>
+              <div class="flex flex-wrap gap-2 relative z-10">
+                {post.data.tags.slice(0, 3).map((tag) => (
+                  <span class="text-xs text-secondary bg-muted px-2.5 py-1 rounded-md font-light">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p class="text-stone-500 dark:text-stone-400 italic font-light">
+          {t["noPosts"]}
+        </p>
+      )
+    }
+
+    <div class="w-24 h-1 bg-accent/20 rounded-full mx-auto mt-20"></div>
+  </section>
+
+  <section
+    class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 opacity-80 hover:opacity-100 transition-opacity duration-500"
+  >
     <div class="mb-20">
       <div class="flex items-center justify-between mb-8">
         <h3
