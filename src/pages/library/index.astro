@@ -14,8 +14,6 @@ const posts = (await getCollection("library"))
       (import.meta.env.PROD ? !post.data.draft : true),
   )
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-
-
 ---
 
 <BaseLayout
@@ -39,7 +37,6 @@ const posts = (await getCollection("library"))
         </h1>
         <p class="text-xl text-secondary max-w-3xl font-light leading-relaxed">
           书籍评论、阅读反思和跨学科探索。
-          捕捉关于文学、思想以及它们之间联系的想法。
         </p>
       </div>
     </header>
