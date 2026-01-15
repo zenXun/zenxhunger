@@ -45,121 +45,39 @@ const clubPosts = rawClub.sort(sortPost).slice(0, 3);
       </div>
     </div>
   </section>
-</BaseLayout>
 
-<!-- Latest Stream Section -->
-<section
-  class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 border-b border-border-subtle/40"
->
-  <h2
-    class="text-3xl sm:text-4xl font-semibold text-primary mb-12 tracking-tight"
+  <!-- Latest Stream Section -->
+  <section
+    class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 border-b border-border-subtle/40"
   >
-    {t["home.latest"]}
-  </h2>
+    <h2
+      class="text-3xl sm:text-4xl font-semibold text-primary mb-12 tracking-tight"
+    >
+      {t["home.latest"]}
+    </h2>
 
-  {
-    latestPosts.length > 0 ? (
-      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {latestPosts.map((post) => (
-          <article class="group bg-surface rounded-xl border border-border-subtle p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-border-subtle hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-            {/* Collection Badge */}
-            <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
-              <span class="text-6xl font-serif font-black uppercase text-secondary">
-                {post.collection[0]}
-              </span>
-            </div>
-
-            <div class="flex items-center gap-2.5 mb-4 relative z-10">
-              <span
-                class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
-              >
-                {post.data.status}
-              </span>
-              <span class="text-xs font-medium px-2 py-0.5 rounded border border-border-subtle text-secondary uppercase tracking-wider">
-                {t[`nav.${post.collection}`]}
-              </span>
-              <time class="text-xs text-secondary font-light ml-auto">
-                {post.data.pubDate.toLocaleDateString(currentLocale, {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
-              </time>
-            </div>
-            <h4 class="text-xl font-semibold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-200 relative z-10">
-              <a href={`/${post.collection}/${post.slug.split("/").pop()}`}>
-                {post.data.title}
-              </a>
-            </h4>
-            <p class="text-sm text-secondary leading-relaxed mb-5 line-clamp-3 font-light relative z-10">
-              {post.data.description}
-            </p>
-            <div class="flex flex-wrap gap-2 relative z-10">
-              {post.data.tags.slice(0, 3).map((tag) => (
-                <span class="text-xs text-secondary bg-muted px-2.5 py-1 rounded-md font-light">
-                  #{tag}
-                </span>
-              ))}
-            </div>
-          </article>
-        ))}
-      </div>
-    ) : (
-      <p class="text-stone-500 dark:text-stone-400 italic font-light">
-        {t["noPosts"]}
-      </p>
-    )
-  }
-
-  <div class="w-24 h-1 bg-accent/20 rounded-full mx-auto mt-20"></div>
-</section>
-
-<section
-  class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 opacity-80 hover:opacity-100 transition-opacity duration-500"
->
-  <div class="mb-20">
-    <div class="flex flex-col gap-1 mb-8">
-      <div class="flex items-center justify-between">
-        <h3
-          class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
-        >
-          {t["nav.studio"]}
-        </h3>
-        <a
-          href="/studio"
-          class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
-        >
-          {t["viewAll"]}
-          <svg
-            class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
-      </div>
-      <p class="text-stone-500 dark:text-stone-400 font-light">
-        {t["studio.description"]}
-      </p>
-    </div>
     {
-      studioPosts.length > 0 ? (
+      latestPosts.length > 0 ? (
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {studioPosts.map((post) => (
-            <article class="group bg-surface rounded-xl border border-border-subtle p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-border-subtle hover:-translate-y-1 transition-all duration-300">
-              <div class="flex items-center gap-2.5 mb-4">
+          {latestPosts.map((post) => (
+            <article class="group bg-surface rounded-xl border border-border-subtle p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-border-subtle hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+              {/* Collection Badge */}
+              <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
+                <span class="text-6xl font-serif font-black uppercase text-secondary">
+                  {post.collection[0]}
+                </span>
+              </div>
+
+              <div class="flex items-center gap-2.5 mb-4 relative z-10">
                 <span
                   class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
                 >
                   {post.data.status}
                 </span>
-                <time class="text-xs text-secondary font-light">
+                <span class="text-xs font-medium px-2 py-0.5 rounded border border-border-subtle text-secondary uppercase tracking-wider">
+                  {t[`nav.${post.collection}`]}
+                </span>
+                <time class="text-xs text-secondary font-light ml-auto">
                   {post.data.pubDate.toLocaleDateString(currentLocale, {
                     year: "numeric",
                     month: "short",
@@ -167,15 +85,15 @@ const clubPosts = rawClub.sort(sortPost).slice(0, 3);
                   })}
                 </time>
               </div>
-              <h4 class="text-xl font-semibold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-200">
-                <a href={`/studio/${post.slug.split("/").pop()}`}>
+              <h4 class="text-xl font-semibold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-200 relative z-10">
+                <a href={`/${post.collection}/${post.slug.split("/").pop()}`}>
                   {post.data.title}
                 </a>
               </h4>
-              <p class="text-sm text-secondary leading-relaxed mb-5 line-clamp-3 font-light">
+              <p class="text-sm text-secondary leading-relaxed mb-5 line-clamp-3 font-light relative z-10">
                 {post.data.description}
               </p>
-              <div class="flex flex-wrap gap-2">
+              <div class="flex flex-wrap gap-2 relative z-10">
                 {post.data.tags.slice(0, 3).map((tag) => (
                   <span class="text-xs text-secondary bg-muted px-2.5 py-1 rounded-md font-light">
                     #{tag}
@@ -187,234 +105,317 @@ const clubPosts = rawClub.sort(sortPost).slice(0, 3);
         </div>
       ) : (
         <p class="text-stone-500 dark:text-stone-400 italic font-light">
-          {t["studio.noPosts"]}
+          {t["noPosts"]}
         </p>
       )
     }
-  </div>
-  <div class="mb-20">
-    <div class="flex flex-col gap-1 mb-8">
-      <div class="flex items-center justify-between">
-        <h3
-          class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
-        >
-          {t["nav.library"]}
-        </h3>
-        <a
-          href="/library"
-          class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
-        >
-          {t["viewAll"]}
-          <svg
-            class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+
+    <div class="w-24 h-1 bg-accent/20 rounded-full mx-auto mt-20"></div>
+  </section>
+
+  <section
+    class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 opacity-80 hover:opacity-100 transition-opacity duration-500"
+  >
+    <div class="mb-20">
+      <div class="flex flex-col gap-1 mb-8">
+        <div class="flex items-center justify-between">
+          <h3
+            class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
-      </div>
-      <p class="text-stone-500 dark:text-stone-400 font-light">
-        {t["library.description"]}
-      </p>
-    </div>
-    {
-      libraryPosts.length > 0 ? (
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {libraryPosts.map((post) => (
-            <article class="group bg-surface rounded-xl border border-border-subtle p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-border-subtle hover:-translate-y-1 transition-all duration-300">
-              <div class="flex items-center gap-2.5 mb-4">
-                <span
-                  class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
-                >
-                  {post.data.status}
-                </span>
-                <time class="text-xs text-secondary font-light">
-                  {post.data.pubDate.toLocaleDateString(currentLocale, {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}
-                </time>
-              </div>
-              <h4 class="text-xl font-semibold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-200">
-                <a href={`/library/${post.slug.split("/").pop()}`}>
-                  {post.data.title}
-                </a>
-              </h4>
-              <p class="text-sm text-secondary leading-relaxed mb-5 line-clamp-3 font-light">
-                {post.data.description}
-              </p>
-              <div class="flex flex-wrap gap-2">
-                {post.data.tags.slice(0, 3).map((tag) => (
-                  <span class="text-xs text-secondary bg-muted px-2.5 py-1 rounded-md font-light">
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
-      ) : (
-        <p class="text-stone-500 dark:text-stone-400 italic font-light">
-          {t["library.noPosts"]}
-        </p>
-      )
-    }
-  </div>
-  <div class="mb-20">
-    <div class="flex flex-col gap-1 mb-8">
-      <div class="flex items-center justify-between">
-        <h3
-          class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
-        >
-          {t["nav.cafe"]}
-        </h3>
-        <a
-          href="/cafe"
-          class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
-        >
-          {t["viewAll"]}
-          <svg
-            class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+            {t["nav.studio"]}
+          </h3>
+          <a
+            href="/studio"
+            class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
-      </div>
-      <p class="text-stone-500 dark:text-stone-400 font-light">
-        {t["cafe.description"]}
-      </p>
-    </div>
-    {
-      cafePosts.length > 0 ? (
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {cafePosts.map((post) => (
-            <article class="group bg-surface rounded-xl border border-border-subtle p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-border-subtle hover:-translate-y-1 transition-all duration-300">
-              <div class="flex items-center gap-2.5 mb-4">
-                <span
-                  class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
-                >
-                  {post.data.status}
-                </span>
-                <time class="text-xs text-secondary font-light">
-                  {post.data.pubDate.toLocaleDateString(currentLocale, {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}
-                </time>
-              </div>
-              <h4 class="text-xl font-semibold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-200">
-                <a href={`/cafe/${post.slug.split("/").pop()}`}>
-                  {post.data.title}
-                </a>
-              </h4>
-              <p class="text-sm text-secondary leading-relaxed mb-5 line-clamp-3 font-light">
-                {post.data.description}
-              </p>
-              <div class="flex flex-wrap gap-2">
-                {post.data.tags.slice(0, 3).map((tag) => (
-                  <span class="text-xs text-secondary bg-muted px-2.5 py-1 rounded-md font-light">
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-            </article>
-          ))}
+            {t["viewAll"]}
+            <svg
+              class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
         </div>
-      ) : (
-        <p class="text-stone-500 dark:text-stone-400 italic font-light">
-          {t["cafe.noPosts"]}
+        <p class="text-stone-500 dark:text-stone-400 font-light">
+          {t["studio.description"]}
         </p>
-      )
-    }
-  </div>
-  <div class="mb-20">
-    <div class="flex flex-col gap-1 mb-8">
-      <div class="flex items-center justify-between">
-        <h3
-          class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
-        >
-          {t["nav.club"]}
-        </h3>
-        <a
-          href="/club"
-          class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
-        >
-          {t["viewAll"]}
-          <svg
-            class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+      </div>
+      {
+        studioPosts.length > 0 ? (
+          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {studioPosts.map((post) => (
+              <article class="group bg-surface rounded-xl border border-border-subtle p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-border-subtle hover:-translate-y-1 transition-all duration-300">
+                <div class="flex items-center gap-2.5 mb-4">
+                  <span
+                    class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
+                  >
+                    {post.data.status}
+                  </span>
+                  <time class="text-xs text-secondary font-light">
+                    {post.data.pubDate.toLocaleDateString(currentLocale, {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </time>
+                </div>
+                <h4 class="text-xl font-semibold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-200">
+                  <a href={`/studio/${post.slug.split("/").pop()}`}>
+                    {post.data.title}
+                  </a>
+                </h4>
+                <p class="text-sm text-secondary leading-relaxed mb-5 line-clamp-3 font-light">
+                  {post.data.description}
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  {post.data.tags.slice(0, 3).map((tag) => (
+                    <span class="text-xs text-secondary bg-muted px-2.5 py-1 rounded-md font-light">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <p class="text-stone-500 dark:text-stone-400 italic font-light">
+            {t["studio.noPosts"]}
+          </p>
+        )
+      }
+    </div>
+    <div class="mb-20">
+      <div class="flex flex-col gap-1 mb-8">
+        <div class="flex items-center justify-between">
+          <h3
+            class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
-      </div>
-      <p class="text-stone-500 dark:text-stone-400 font-light">
-        {t["club.description"]}
-      </p>
-    </div>
-    {
-      clubPosts.length > 0 ? (
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {clubPosts.map((post) => (
-            <article class="group bg-surface rounded-xl border border-border-subtle p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-border-subtle hover:-translate-y-1 transition-all duration-300">
-              <div class="flex items-center gap-2.5 mb-4">
-                <span
-                  class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
-                >
-                  {post.data.status}
-                </span>
-                <time class="text-xs text-secondary font-light">
-                  {post.data.pubDate.toLocaleDateString(currentLocale, {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}
-                </time>
-              </div>
-              <h4 class="text-xl font-semibold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-200">
-                <a href={`/club/${post.slug.split("/").pop()}`}>
-                  {post.data.title}
-                </a>
-              </h4>
-              <p class="text-sm text-secondary leading-relaxed mb-5 line-clamp-3 font-light">
-                {post.data.description}
-              </p>
-              <div class="flex flex-wrap gap-2">
-                {post.data.tags.slice(0, 3).map((tag) => (
-                  <span class="text-xs text-secondary bg-muted px-2.5 py-1 rounded-md font-light">
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-            </article>
-          ))}
+            {t["nav.library"]}
+          </h3>
+          <a
+            href="/library"
+            class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
+          >
+            {t["viewAll"]}
+            <svg
+              class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
         </div>
-      ) : (
-        <p class="text-stone-500 dark:text-stone-400 italic font-light">
-          {t["club.noPosts"]}
+        <p class="text-stone-500 dark:text-stone-400 font-light">
+          {t["library.description"]}
         </p>
-      )
-    }
-  </div>
-</section>
+      </div>
+      {
+        libraryPosts.length > 0 ? (
+          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {libraryPosts.map((post) => (
+              <article class="group bg-surface rounded-xl border border-border-subtle p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-border-subtle hover:-translate-y-1 transition-all duration-300">
+                <div class="flex items-center gap-2.5 mb-4">
+                  <span
+                    class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
+                  >
+                    {post.data.status}
+                  </span>
+                  <time class="text-xs text-secondary font-light">
+                    {post.data.pubDate.toLocaleDateString(currentLocale, {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </time>
+                </div>
+                <h4 class="text-xl font-semibold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-200">
+                  <a href={`/library/${post.slug.split("/").pop()}`}>
+                    {post.data.title}
+                  </a>
+                </h4>
+                <p class="text-sm text-secondary leading-relaxed mb-5 line-clamp-3 font-light">
+                  {post.data.description}
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  {post.data.tags.slice(0, 3).map((tag) => (
+                    <span class="text-xs text-secondary bg-muted px-2.5 py-1 rounded-md font-light">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <p class="text-stone-500 dark:text-stone-400 italic font-light">
+            {t["library.noPosts"]}
+          </p>
+        )
+      }
+    </div>
+    <div class="mb-20">
+      <div class="flex flex-col gap-1 mb-8">
+        <div class="flex items-center justify-between">
+          <h3
+            class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
+          >
+            {t["nav.cafe"]}
+          </h3>
+          <a
+            href="/cafe"
+            class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
+          >
+            {t["viewAll"]}
+            <svg
+              class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+        <p class="text-stone-500 dark:text-stone-400 font-light">
+          {t["cafe.description"]}
+        </p>
+      </div>
+      {
+        cafePosts.length > 0 ? (
+          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {cafePosts.map((post) => (
+              <article class="group bg-surface rounded-xl border border-border-subtle p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-border-subtle hover:-translate-y-1 transition-all duration-300">
+                <div class="flex items-center gap-2.5 mb-4">
+                  <span
+                    class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
+                  >
+                    {post.data.status}
+                  </span>
+                  <time class="text-xs text-secondary font-light">
+                    {post.data.pubDate.toLocaleDateString(currentLocale, {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </time>
+                </div>
+                <h4 class="text-xl font-semibold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-200">
+                  <a href={`/cafe/${post.slug.split("/").pop()}`}>
+                    {post.data.title}
+                  </a>
+                </h4>
+                <p class="text-sm text-secondary leading-relaxed mb-5 line-clamp-3 font-light">
+                  {post.data.description}
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  {post.data.tags.slice(0, 3).map((tag) => (
+                    <span class="text-xs text-secondary bg-muted px-2.5 py-1 rounded-md font-light">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <p class="text-stone-500 dark:text-stone-400 italic font-light">
+            {t["cafe.noPosts"]}
+          </p>
+        )
+      }
+    </div>
+    <div class="mb-20">
+      <div class="flex flex-col gap-1 mb-8">
+        <div class="flex items-center justify-between">
+          <h3
+            class="text-2xl font-semibold text-stone-800 dark:text-stone-200 tracking-tight"
+          >
+            {t["nav.club"]}
+          </h3>
+          <a
+            href="/club"
+            class="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-500 transition-all duration-200 flex items-center gap-1 group"
+          >
+            {t["viewAll"]}
+            <svg
+              class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+        <p class="text-stone-500 dark:text-stone-400 font-light">
+          {t["club.description"]}
+        </p>
+      </div>
+      {
+        clubPosts.length > 0 ? (
+          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {clubPosts.map((post) => (
+              <article class="group bg-surface rounded-xl border border-border-subtle p-7 hover:shadow-xl hover:shadow-stone-200/50 dark:hover:shadow-stone-900/50 hover:border-border-subtle hover:-translate-y-1 transition-all duration-300">
+                <div class="flex items-center gap-2.5 mb-4">
+                  <span
+                    class={`text-xs font-medium px-3 py-1 rounded-full ${statusColors[post.data.status]}`}
+                  >
+                    {post.data.status}
+                  </span>
+                  <time class="text-xs text-secondary font-light">
+                    {post.data.pubDate.toLocaleDateString(currentLocale, {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </time>
+                </div>
+                <h4 class="text-xl font-semibold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-200">
+                  <a href={`/club/${post.slug.split("/").pop()}`}>
+                    {post.data.title}
+                  </a>
+                </h4>
+                <p class="text-sm text-secondary leading-relaxed mb-5 line-clamp-3 font-light">
+                  {post.data.description}
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  {post.data.tags.slice(0, 3).map((tag) => (
+                    <span class="text-xs text-secondary bg-muted px-2.5 py-1 rounded-md font-light">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <p class="text-stone-500 dark:text-stone-400 italic font-light">
+            {t["club.noPosts"]}
+          </p>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>
+</BaseLayout>
