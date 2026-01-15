@@ -9,7 +9,7 @@ console.log("DEBUG: ASTRO CONFIG RELOADED " + new Date().toISOString());
 export default defineConfig({
   site: 'https://zenxhunger.com',
   markdown: {
-    rehypePlugins: [rehypeBookLinker],
+    rehypePlugins: [[rehypeBookLinker, { isProduction: process.env.NODE_ENV === 'production' }]],
   },
   i18n: {
     defaultLocale: 'zh',

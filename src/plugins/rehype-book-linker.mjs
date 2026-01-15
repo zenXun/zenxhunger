@@ -7,7 +7,7 @@ import { bookLinkerConfig } from '../config/book-linker.mjs';
 // Cache for library mappings
 let libraryMapping = null;
 
-function loadLibraryMappings(root) {
+function loadLibraryMappings(root, isProduction) {
     libraryMapping = new Map();
     const libraryDir = path.join(root, 'src/content/library');
 
@@ -43,8 +43,8 @@ function loadLibraryMappings(root) {
                     }
 
                     // Filtering Logic: Skip drafts in Production
-                    // Use process.env.NODE_ENV for generic node compatibility during build time
-                    if (process.env.NODE_ENV === 'production' && data.draft === true) {
+                    // Use process.env.NODE_ENV or passed flag for build time check
+                    if (isProduction && data.draft === true) {
                         continue;
                     }
 
@@ -80,10 +80,14 @@ function getBestSlug(key, mapping, currentLocale) {
     return null;
 }
 
-export default function rehypeBookLinker() {
+export default function rehypeBookLinker(options = {}) {
+    const isProduction = options.isProduction !== undefined
+        ? options.isProduction
+        : (process.env.NODE_ENV === 'production' || (import.meta.env && import.meta.env.PROD));
+
     return (tree, file) => {
         const root = process.cwd();
-        const mapping = loadLibraryMappings(root);
+        const mapping = loadLibraryMappings(root, isProduction);
 
         if (mapping.size === 0) return;
 
