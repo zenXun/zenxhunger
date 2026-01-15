@@ -42,6 +42,12 @@ function loadLibraryMappings(root) {
                         data.alias.forEach(a => keys.push(a.toLowerCase()));
                     }
 
+                    // Filtering Logic: Skip drafts in Production
+                    // If draft is true, and we are in PROD, skip this file from the mapping.
+                    if (import.meta.env && import.meta.env.PROD && data.draft === true) {
+                        continue;
+                    }
+
                     keys.forEach(key => {
                         if (!libraryMapping.has(key)) {
                             libraryMapping.set(key, {});

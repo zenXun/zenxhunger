@@ -6,6 +6,6 @@ pubDate: 2026-01-13
 status: "起"
 locale: "zh"
 tags: ["管理", "读书笔记"]
-draft: false
+draft: true
 description: "格鲁夫给经理人的第一课读书笔记"
 ---

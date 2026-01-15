@@ -6,7 +6,7 @@ pubDate: 2026-01-13
 status: "Flop"
 locale: "en"
 tags: ["management", "notes"]
-draft: false
+draft: true
 description: "Notes on High Output Management"
 ---
 

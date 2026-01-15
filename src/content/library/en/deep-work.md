@@ -6,6 +6,6 @@ pubDate: 2026-01-13
 status: "Flop"
 locale: "en"
 tags: ["productivity", "work", "notes"]
-draft: false
+draft: true
 description: "Notes on Deep Work"
 ---

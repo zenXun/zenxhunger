@@ -6,6 +6,6 @@ pubDate: 2026-01-13
 status: "Flop"
 locale: "en"
 tags: ["leadership", "management", "notes"]
-draft: false
+draft: true
 description: "Notes on The Leadership Pipeline"
 ---
