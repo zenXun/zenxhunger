@@ -20,13 +20,12 @@ In the classic context of management, influence is almost synonymous with the mo
 
 However, in my daily observations, this human leverage is not a pure physical addition; it is mixed with extremely high "Communication Entropy."
 
-A rather extreme example: I have a team member who is highly motivated and energetic but has a fatal flaw—he only "reads half the message." Whether in group chats or task descriptions, if I ask two questions, he only answers one. This forces me to follow up repeatedly or clarify again in meetings. While simple clarifications are manageable, it becomes disastrous when discussing architectural premises—if he builds something based on only half the context, the result is often misaligned at best and a complete waste of time requiring a total rewrite at worst.
-
-Traditional management theory suggests solving this through feedback, coaching, or repositioning the individual. But all these efforts are essentially "maintenance costs" paid to coordinate human labor. I have begun to wonder: In an era of radical technological change, is the cost of maintaining "human leverage" beginning to swallow the output it generates?
+A rather extreme example: I once encountered a highly motivated member who had a fatal habit—incomplete information capture. If I asked two questions in a group chat, he would only answer one; if a task description had multiple key points, he would only catch half. This forced me into a loop of "follow-up, clarification, and re-meeting." What gave me the biggest headache was that once he took action based on fragmented context, the result would be completely off track. After a few such incidents, I developed a deep anxiety whenever assigning important and urgent tasks, fearing that history would repeat itself and drag down the overall project.
+Traditional management theory suggests solving this by providing feedback and coaching to help him improve, or by placing him where his strengths are better utilized. But all these are costs paid to "coordinate human labor." I have begun to wonder: In an era of radical technological change, is the maintenance cost of such "human leverage" beginning to swallow the output it generates?
 
 ## Will AI Become a Purer Form of Leverage?
 
-Based on the iterative observation of AI capabilities and following the methodology of Syntopical Reading proposed by Mortimer Adler in *How to Read a Book*—which is the core methodology of my writing series—I am preparing to test the following three key hypotheses during my transition:
+Based on the iterative observation of AI capabilities, I am preparing to test the following three key hypotheses during my transition:
 
 ### 1. From "Multiplying Others" to "Multiplying Self": Seeking "Escape Velocity"
 
@@ -48,7 +47,7 @@ However, in my vision for the 2026 IC transition, I will gain the freedom of "se
 
 Traditional logic assumes managers see the big picture (Business & Program) while ICs just keep their heads down. But managers are often trapped by current resource boundaries and schedules; their logic is usually one of "linear extension"—adding a bit more resource to the existing track. An AI-augmented IC, freed from execution overhead, actually gains the "luxury time" to observe the whole.
 
-- **Hypothesis**: Because ICs do not have to sink into endless alignment meetings, they can use AI to rapidly scan cross-team codebases and untangle complex business chains. This combination of depth and breadth allows them to propose "non-linear" innovations. Instead of patching an old system, they can identify structural flaws and propose fundamental reconstructions. As *The Staff Engineer's Path* suggests, the true value of a Staff Engineer lies in solving systemic deadlocks with an elegant, cross-team technical solution that a manager couldn't resolve even with ten additional hires.
+- **Hypothesis**: Because ICs do not have to sink into endless alignment meetings, they can use AI to rapidly scan cross-team codebases and untangle complex business chains. This combination of depth and breadth allows them to propose "non-linear" solutions. This innovation is not about patching an old system, but about seeing through the logic flaws at the bottom of the system and achieving structural reconstruction. As *The Staff Engineer's Path* suggests, the true value of a Staff Engineer lies in solving systemic deadlocks with an elegant, cross-team technical solution that a manager couldn't resolve even with ten additional hires.
 
 ## Mindset Preparation
 
@@ -71,3 +70,4 @@ My environment at Google shapes my perspective and defines my limitations. In an
 I will officially launch this experiment in 2026. Until then, I will continue to accumulate "weight" for this leverage swap through syntopical reading and AI practice.
 
 The experiment has not yet begun, but the rehearsal of thought never stops.
+
