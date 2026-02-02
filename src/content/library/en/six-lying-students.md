@@ -36,7 +36,7 @@ I often ask my wife: "Do you truly believe that assessment, or are you just repe
 
 # 3. Seeking a Higher Standard: Integrity in Solitude
 
-I don’t ask this to claim some moral high ground. Rather, I’ve always been fond of the Chinese phrase Junzi Shendu (君子慎独) — "A person of integrity is cautious when alone." In this context, I interpret it as: when I evaluate others, I hope not to make rash judgments just because they aren't standing in front of me to defend themselves. It is difficult to achieve, but it is the direction I strive for.
+I don’t ask this to claim some moral high ground. Rather, I’ve always been fond of the Chinese phrase 君子慎独 — "A person of integrity is cautious when alone." In this context, I interpret it as: when I evaluate others, I hope not to make rash judgments just because they aren't standing in front of me to defend themselves. It is difficult to achieve, but it is the direction I strive for.
 
 The brilliance of the novel lies in the fact that, years later, one of the characters opens the "second envelope."
 
