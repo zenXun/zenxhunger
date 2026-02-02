@@ -1,13 +1,13 @@
 ---
-title: "Integrity in Solitude"
+title: "Integrity in Solitude: Reflection on 「Six Lying College Students」"
 book_title: "Six Lying College Students"
 alias: ["Six Lying College Students"]
 pubDate: 2026-02-01
-status: "Flop"
+status: "Turn"
 locale: "en"
 tags: ["Detective Fiction","Judgment","Reflection"]
 draft: false
-description: "Reflection on 「Six Lying College Students」"
+description: "Is it wrong to dislike someone?"
 ---
 
 I recently finished one of my current favorite mystery novels: Six Lying College Students by Akinari Asakura.
@@ -36,9 +36,11 @@ I often ask my wife: "Do you truly believe that assessment, or are you just repe
 
 # 3. Seeking a Higher Standard: Integrity in Solitude
 
-I don’t ask this to claim some moral high ground. Rather, I’ve always been fond of the Chinese phrase 君子慎独 — "A person of integrity is cautious when alone." In this context, I interpret it as: when I evaluate others, I hope not to make rash judgments just because they aren't standing in front of me to defend themselves. It is difficult to achieve, but it is the direction I strive for.
+I don’t ask this to claim some moral high ground. Rather, I’ve always been fond of the Chinese phrase Junzi Shendu (君子慎独) — "A person of integrity is cautious even when alone." I hope that when I evaluate others, I do not make rash judgments just because they aren't standing in front of me.
 
-The brilliance of the novel lies in the fact that, years later, one of the characters opens the "second envelope."
+We can certainly discuss how someone's words or actions in a specific scenario were ill-considered or what problems they might cause. However, to conclude based solely on that evidence that someone is an "irresponsible person" or that they "don't care about others" feels somewhat arbitrary. It is difficult to avoid such conclusions, but it is the direction I strive for.
+
+In the novel, the author’s brilliance lies in the fact that, years later, one of the characters opens the "second envelope."
 
 I won't spoil the ending, but the sense of relief I felt after finishing it was unforgettable. It teaches us that when we examine a person through a single "slice," any interpretation can seem logically sound, but it is rarely the truth.
 
