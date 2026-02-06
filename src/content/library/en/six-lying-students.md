@@ -20,7 +20,7 @@ The story opens with a compelling hook: six exceptional college students are fin
 
 However, the recruitment rules suddenly change. The spots are reduced to just one, and the six must vote to decide who gets the job. As the discussion reaches a stalemate, an envelope containing "dirt" on the candidates appears.
 
-As the secrets are revealed one by one, the once-shining personas collapse instantly: underage drinking, betraying friends, messy personal lives... It feels as though their previous perfection was merely a meticulously crafted mask for the interview. This rapid fall from "elite" to "sinner" leaves readers disillusioned and instinctively ready to pass judgment.
+As the secrets are revealed one by one, the once-shining personas collapse instantly: school bullying, involvement in pyramid schemes, messy personal lives... It feels as though their previous perfection was merely a meticulously crafted mask for the interview. This rapid fall from "elite" to "sinner" leaves readers disillusioned and instinctively ready to pass judgment.
 
 # 2. Reality Mapping: "Slices" and "Judgment" in Reality TV
 
@@ -32,7 +32,7 @@ Is this the real them?
 
 Is it possible that they are going through struggles we know nothing about, leading to choices that would seem perfectly reasonable if we had the full context? Are the "leaks" online true, or have they been distorted by the narrator’s bias or selective emphasis?
 
-I often ask my wife: "Do you truly believe that assessment, or are you just repeating what you read online?"
+I often ask my wife: "Do you truly believe that assessment?"
 
 # 3. Seeking a Higher Standard: Integrity in Solitude
 
@@ -40,9 +40,11 @@ I don’t ask this to claim some moral high ground. Rather, I’ve always been f
 
 We can certainly discuss how someone's words or actions in a specific scenario were ill-considered or what problems they might cause. However, to conclude based solely on that evidence that someone is an "irresponsible person" or that they "don't care about others" feels somewhat arbitrary. It is difficult to avoid such conclusions, but it is the direction I strive for.
 
-In the novel, the author’s brilliance lies in the fact that, years later, one of the characters opens the "second envelope."
+In the novel, the interview squad uses deduction to identify the only candidate who had the opportunity to plant the "dirt," and the incident ends with his withdrawal. Years later, the only candidate who was hired opens the "second envelope." It contains the investigation notes of the candidate who took the blame, detailing his visits to uncover the truth behind the accusations. There were no purely evil villains, only people reacting naturally in their specific circumstances.
 
-I won't spoil the ending, but the sense of relief I felt after finishing it was unforgettable. It teaches us that when we examine a person through a single "slice," any interpretation can seem logically sound, but it is rarely the truth.
+The sense of relief I felt after reading that ending was unforgettable. It teaches us that when we examine a person through a single "slice," any interpretation can seem logically sound, but it is rarely the truth. The author's brilliance lies in not making the investigating student a perfect saint; an unsent threatening letter found in the files reveals a darker, more manipulative side, making the character far more three-dimensional.
+
+
 
 Choosing the interpretation that feels most "satisfying" or "cathartic" to us is our right, but I believe we should seek a higher standard. This isn't about being a soulless "saint," but about possessing the self-awareness to suspend judgment:
 
