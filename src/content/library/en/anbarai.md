@@ -31,7 +31,7 @@ Mizuki Tsujimura's writing is excellent; each chapter creates that sense of "unc
 
 ## Zen Moment: Boundaries and Detachment
 
-This book forms an interesting contrast with *Six Lying College Students*. Both discuss the black and white of interpersonal relationships, yet together they reveal the complexity of human nature.
+This book forms an interesting contrast with [*Six Lying College Students*](/en/library/six-lying-students). Both discuss the black and white of interpersonal relationships, yet together they reveal the complexity of human nature.
 
 My biggest takeaway from reading this book is: **Respect your own feelings.** When validly establishing boundaries, timely "withdrawal" is the best way to protect oneself. Perhaps I am indeed not mature enough, or perhaps naturally sensitive, but regardless, maintaining inner comfort is the greatest respect one can pay to oneself.
 

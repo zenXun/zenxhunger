@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-import rehypeBookLinker from './src/plugins/rehype-book-linker.mjs';
+// import rehypeBookLinker from './src/plugins/rehype-book-linker.mjs';
 
 console.log("DEBUG: ASTRO CONFIG RELOADED " + new Date().toISOString());
 
@@ -9,7 +9,7 @@ console.log("DEBUG: ASTRO CONFIG RELOADED " + new Date().toISOString());
 export default defineConfig({
   site: 'https://zenxhunger.com',
   markdown: {
-    rehypePlugins: [[rehypeBookLinker, { isProduction: process.env.NODE_ENV === 'production' }]],
+    // rehypePlugins: [[rehypeBookLinker, { isProduction: process.env.NODE_ENV === 'production' }]],
   },
   i18n: {
     defaultLocale: 'zh',
